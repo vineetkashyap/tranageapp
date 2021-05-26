@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'preloader.html' %}
+{% include 'header.html' %}
+        <!-- Hero -->
+        <section id="slider" class="hero p-0">
+            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <div class="parallax-y-bg" style="background-image:url({% static 'assets/images/truck2.jpeg' %})"></div> 
+
+                        <div class="slide-content row">
+                            <div class="col-12 d-flex justify-content-start inner">
+                                <div class="left text-left">
+
+                                    <!-- Content -->
+                                    <h1 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text">
+                                        <span class="pre-title m-0">Express Delivery</span>
+                                        What are we going to deliver <span class="featured bottom"><span>today?</span></span>
+                                    </h1>
+                                    <!-- <p data-aos="zoom-in" data-aos-delay="2400" class="description bigger">Train your mind to see the bright side in any situation. Opportunities do not arise you create them.</p> -->
+
+                                    <!-- Action -->
+                                    <div data-aos="fade-up" data-aos-delay="2800" class="buttons">
+                                        <div class="d-sm-inline-flex">
+                                            <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a>
+                                            <a href="#services" class="smooth-anchor ml-sm-4 mt-4 btn outline-button">READ MORE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section-1 odd offers" style="background-color:#111117;">
+            <div class="container">
+            <div class="row items">
+                <div class="col-12 col-md-0 pr-md-5 text">
+                    <div data-aos="fade-up"  class="row intro">
+                        <div class="col-12 p-0">
+                            <span class="pre-title m-0"></span>
+                            <h2 class="mb-0"><br> <span class="featured bottom"><span>Overview</span></span> </h2>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-12 item">
+                    <div class="card">
+                        <i class="icon fas fa-shipping-fast"></i>
+                        <h4></h4>
+                        <p style="text-align: justify;">Transportation industry contributed roughly 6.3% of GDP and is majorly    dominated by road sector. More than 50% of freight and 90% of passenger traffic are handled by road. Government as well private investments, rising exports, increasing interstate movement of goods and passengers, growing FMCG sector and rising disposable income are the major drivers of transportation industry in India. In order to boost the connectivity across country, 100% FDI has been allowed in roads and Highway sector via automatic route. </p>
+ <p style="text-align: justify;">The transporter takes the risk (financial/credit) of shipping the goods and it is his responsibility to place the vehicles at the loading point, ensure that the necessary paperwork is done, and pay the advance money to the vehicle supplier so that the goods can be shipped. Transporters typically have to pay 80-90 percent of the charges in advance and the remaining on the receipt of the proof of delivery, and they cannot raise an invoice to the shipper unless they receive a proof-of-delivery, which is in 2-3 weeks from the day the goods are delivered. Once the invoice is submitted, the shipper, typically, takes 30-60 days to make the payment. So the role of the transporter is heavily capital-dependent. Moreover, here <b>TRANAGE comes into the picture with intention to reduce the pain of the transporters.</b> </p>
+ <p style="text-align: justify;">
+TRANAGE brings transporters and transportation needs at single platform, along with this, it eliminates all the unfair means that hollow up the transportation process. At a first glance, TRANAGE is an industrially advanced platform that endorses transparency and technology in the transportation industry and is rapidly founding an extended transportation network spread through the corners of India. This platform caters for on time secured transportation of client’s products and aids client with real time tracking and monitoring facility.  </p>
+ <p style="text-align: justify;">
+Backed with an outstanding team of competent professionals and experts, Tranage holds a sturdy association with many transporters and values them as its assets. </p>
+
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% comment %} <div data-aos="fade-up" class="col-12 col-md-12 item">
+                     <div class="card">
+                        <i class="icon fas fa-motorcycle"></i>
+                        <h4>Motoboy</h4>
+                        <p>Functional motoboy for delivery of documents and small objects. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti rerum eum commodi, voluptates totam reprehenderit quisquam ullam adipisci aut ducimus aperiam eveniet praesentium doloremque voluptas at ipsum nesciunt hic, quod numquam maiores minima, voluptate explicabo atque? Omnis ratione consequatur culpa. Maxime laudantium dignissimos expedita, explicabo voluptas odit quas tempora quidem voluptatibus exercitationem consequuntur, cupiditate accusamus doloremque magnam enim officiis sequi! Ex pariatur temporibus, ipsa debitis est cum id vero veritatis animi autem excepturi, consequatur odio repellat facere. Error, beatae molestiae reprehenderit minus eum ratione laborum officiis dolor blanditiis mollitia, dolore rerum voluptates fugit quas, fugiat iusto deserunt laudantium? Possimus, in. </p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> 
+                </div> {% endcomment %}
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-shuttle-van"></i>
+                        <h4>Shuttle Van</h4>
+                        <p>Suitable for medium sized loads that need digital tracking.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-truck-moving"></i>
+                        <h4>Mini Truck</h4>
+                        <p>For dry cargo deliveries with more cubic allocation.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section-2 hero p-0">
+            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
+
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <div class="parallax-y-bg" style="background-image:url({% static 'assets/images/truck6.jpg' %})"></div>
+
+                        <div class="slide-content row">
+                            <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
+                                <div class="right pb-0 text-left">
+
+                                    <!-- Content -->
+                                    <h2 class="title effect-static-text" style="color:#ffffff"><span class="pre-title m-0">Who we are</span >Industry Leaders.</h2>
+                                    <!-- Action -->
+                                    <div class="buttons">
+                                        {% comment %} <div class="d-sm-inline-flex">
+                                            <a href="#" class="mt-4 btn primary-button">READ MORE</a>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <section id="services" class="section-1 odd offers" style="background-color:#111117;">
+            <div class="container">
+            <div class="row items">
+                <div class="col-12 col-md-0 pr-md-5 text">
+                    <div data-aos="fade-up"  class="row intro">
+                        <div class="col-12 p-0">
+                            <span class="pre-title m-0"></span>
+                            <h2 class="mb-0"><br> <span class="featured bottom"><span>VISION</span></span> </h2>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-12 item">
+                    <div class="card">
+                        <i class="icon fas fa-shipping-fast"></i>
+                        <h4></h4>
+                        <p style="text-align: justify;">TRANAGE believes that supporting the transportation industry with contemporary equipment and devices will certainly boost the accuracy, transparency and reliability of clients over transporters. Consequently, a team of skilled professionals and specialists are working hard to identify the major concerns of transportation and to find out innovative and apt solutions for them.</p>
+ <p style="text-align: justify;">To ensure the optimum security and transparency through the transportation process, Tranage vehicles are equipped with every mechanical and digital aid for navigation. Thus, Tranage is aimed to rectify all the mischievous activities that might occur while the fleet is moving on the route. It certainly helps to reduce the trip time, unwanted expense sand fuel leakage. From driver unavailability, growing compliance complexities and constantly-changing consumer demand to unstable fuel costs, Tranage is intended to ease the tension between cost-cutting and maximizing profit.</b> </p>
+ <p style="text-align: justify;">
+The facilities offered by the TRANAGE are remedies for the syndromes encountered by the Transportation Industry. A well secured, transparent and accurate moving system is a boon for small and big size truckers and Tranage is obligated to become thought leader of this notion.  </p>
+
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% comment %} <div data-aos="fade-up" class="col-12 col-md-12 item">
+                     <div class="card">
+                        <i class="icon fas fa-motorcycle"></i>
+                        <h4>Motoboy</h4>
+                        <p></p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> 
+                </div> {% endcomment %}
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-shuttle-van"></i>
+                        <h4>Shuttle Van</h4>
+                        <p>Suitable for medium sized loads that need digital tracking.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-truck-moving"></i>
+                        <h4>Mini Truck</h4>
+                        <p>For dry cargo deliveries with more cubic allocation.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            </div>
+        </section>
+
+ <section id="about" class="section-2 hero p-0">
+            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
+
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <div class="parallax-y-bg" style="background-image:url({% static 'assets/images/truck1.jpg' %})"></div>
+
+                        <div class="slide-content row">
+                            <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
+                                <div class="right pb-0 text-left">
+
+                                    <!-- Content -->
+                                    <h2 class="title effect-static-text" style="color:#ffffff"><span class="pre-title m-0">Who we are</span >Industry Leaders.</h2>
+                                    <!-- Action -->
+                                    <div class="buttons">
+                                        {% comment %} <div class="d-sm-inline-flex">
+                                            <a href="#" class="mt-4 btn primary-button">READ MORE</a>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+
+       <section id="services" class="section-1 odd offers" style="background-color:#111117;">
+            <div class="container">
+            <div class="row items">
+                <div class="col-12 col-md-0 pr-md-5 text">
+                    <div data-aos="fade-up"  class="row intro">
+                        <div class="col-12 p-0">
+                            <span class="pre-title m-0"></span>
+                            <h2 class="mb-0"><br> <span class="featured bottom"><span>MISSION </span></span> </h2>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-12 item">
+                    <div class="card">
+                        <i class="icon fas fa-shipping-fast"></i>
+                        <h4></h4>
+                        <p style="text-align: justify;">We at TRANAGE, are aimed to setting up an enormous transportation network extended throughout India. We have dreamed for an easy yet secured online medium that can transport bulk material or products from North to South and East to West in pan India swiftly and hassle less.</p>
+ <p style="text-align: justify;">TRANAGE is determined its solid presence in pan India and to register 1 million trucks with the platform of Tranage. The design and system is planned to assist transporters and truckers in improving their financials. Thus, Tranage dreams to anchor its name among leading trucking brands. </p>
+ <p style="text-align: justify;">
+We simply make conveyance of product/material easy, quick and safe and make sure that the transportation vehicles will be traceable in real time. With Tranage transporters or clients can monitor their product/material during the transportation with the comfort of relaxing back at home. We are supporting transporters with sufficient work order, technical assistance and opportunity to use</p>
+
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% comment %} <div data-aos="fade-up" class="col-12 col-md-12 item">
+                     <div class="card">
+                        <i class="icon fas fa-motorcycle"></i>
+                        <h4>Motoboy</h4>
+                        <p></p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> 
+                </div> {% endcomment %}
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-shuttle-van"></i>
+                        <h4>Shuttle Van</h4>
+                        <p>Suitable for medium sized loads that need digital tracking.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    {% comment %} <div class="card">
+                        <i class="icon fas fa-truck-moving"></i>
+                        <h4>Mini Truck</h4>
+                        <p>For dry cargo deliveries with more cubic allocation.</p>
+                        <a href="#"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Get -->
+        <section id="get" class="section-4 hero p-0 odd" style="background-color:#111117">
+            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
+
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <div class="parallax-y-bg" style="background-image:url({% static 'assets/images/truck9.jpg' %})"></div>
+
+                        <div class="slide-content row">
+                            <div class="col-12 d-flex justify-content-start justify-content-md-center inner">
+                                <div class="center text-left text-md-center">
+
+                                    <!-- Content -->
+                                    <h2 class="title effect-static-text">Why choose <span class="featured bottom"><span>us?</span></span></h2>
+                                    <p class="description mr-auto ml-auto" style="color:#000000;">
+                                   <b> We work intensively in search of ideals that can add up in the lives of our customers. This is what motivates us to improve every day. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit reiciendis doloremque ipsa? Perferendis modi similique fugit architecto ex ab accusamus doloremque nostrum. Iusto culpa voluptate blanditiis eveniet porro hic, nulla corporis possimus quod aperiam aut commodi. Explicabo laborum aliquam repellat, id vero minima ea consequuntur nulla et molestias maxime expedita porro quos impedit rem! Eius omnis consectetur cumque! Vitae ratione alias illum dolorem, autem corrupti nam temporibus suscipit ut sed esse rem et tempore nisi debitis unde. Quibusdam sint, nisi asperiores ullam dolor fugiat harum odit numquam nesciunt veritatis reiciendis rerum, officiis voluptatem. Recusandae porro deleniti possimus officiis dolorum sunt? </b></p>
+
+                                    <!-- Action -->
+                                    <div class="buttons">
+                                        <div class="d-sm-inline-flex">
+                                            <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+     
+        
+        <!-- Footer -->
+      {% include 'footer.html' %}
+{% endblock content %}

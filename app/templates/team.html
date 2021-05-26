@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        {% block content %}
+        {% comment %}=============== header============= {% endcomment %}
+          {% include 'header.html' %}
+
+        <!-- Hero -->
+        <section id="slider" class="hero p-0 odd featured">
+            <div class="swiper-container no-slider animation slider-h-50 slider-h-auto">
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <img src="{% static 'assets/images/bg-wide.jpg' %}" alt="Full Image" class="full-image" data-mask="80">   
+
+                        <div class="slide-content row text-center">
+                            <div class="col-12 mx-auto inner">
+
+                                <!-- Content -->
+                                <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Our People</li>
+                                    </ol>
+                                </nav>
+
+                                <h1 class="mb-0 title effect-static-text">Our People</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team" class="section-1 team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 align-self-top text-center text-md-left text">
+                        <div class="row text-center intro">
+                            <div class="col-12">
+                                <span class="pre-title m-auto">We like what we do</span>
+                                <h2><span class="featured"><span>Team</span></span> of Experts</h2>
+                            </div>
+                        </div>
+                        <div class="row items text-left">
+                            <div class="col-12 col-md-6 p-0">
+                                <div class="row item">
+                                    <div class="col-4 p-0 pr-3 align-self-center">
+                                        <img src="{% static 'assets/images/team-1.jpg' %}" alt="Person" class="person">
+                                    </div>
+                                    <div class="col-8 align-self-center text-left">
+                                        <h4>David Cooper</h4>
+                                        <p>CTO & CO-FOUNDER</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis diam varius diam ultricies lacinia.</p>
+                                        <ul class="navbar-nav social share-list ml-auto">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>  
+                                </div>
+                                <div class="row item">
+                                    <div class="col-4 p-0 pr-3 align-self-center">
+                                        <img src="{% static 'assets/images/team-2.jpg' %}" alt="Person" class="person">
+                                    </div>
+                                    <div class="col-8 align-self-center text-left">
+                                        <h4>Emma Lopez</h4>
+                                        <p>CHIEF MARKETING</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis diam varius diam ultricies lacinia.</p>
+                                        <ul class="navbar-nav social share-list ml-auto">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>  
+                                </div>
+                            </div>                        
+                            <div class="col-12 col-md-6 p-0">
+                                <div class="row item">
+                                    <div class="col-4 p-0 pr-3 align-self-center">
+                                        <img src="{% static 'assets/images/team-3.jpg' %}" alt="Person" class="person">
+                                    </div>
+                                    <div class="col-8 align-self-center text-left">
+                                        <h4>Oliver Jones</h4>
+                                        <p>CHIEF PROCUREMENT</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis diam varius diam ultricies lacinia.</p>
+                                        <ul class="navbar-nav social share-list ml-auto">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>  
+                                </div>
+                                <div class="row item">
+                                    <div class="col-4 p-0 pr-3 align-self-center">
+                                        <img src="{% static 'assets/images/team-4.jpg' %}" alt="Person" class="person">
+                                    </div>
+                                    <div class="col-8 align-self-center text-left">
+                                        <h4>T. Johnson</h4>
+                                        <p>CEO & PRESIDENT</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis diam varius diam ultricies lacinia.</p>
+                                        <ul class="navbar-nav social share-list ml-auto">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link"><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% include 'footer.html' %}
+     
+        {% endblock content %}

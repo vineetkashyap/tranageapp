@@ -1,0 +1,909 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="custom.js"></script>
+ <!-- Preloader -->
+        {% include 'preloader.html' %}
+
+        <!-- Header -->
+          {% include 'header.html' %}
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous"> {% endcomment %}
+
+
+
+        <!-- Hero -->
+        <section id="slider" class="hero p-0 odd">
+            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
+                <div class="swiper-wrapper">
+
+                    <!-- Item 1 -->
+                    <div class="swiper-slide slide-center">
+
+                        <!-- Media -->
+                        <video class="full-image to-bottom" data-mask="50" src="{% static 'assets/video/highway.mp4' %}" autoplay muted loop></video>
+
+                        <div class="slide-content row">
+                            <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
+                                <div class="right text-left">
+
+                                    <!-- Content -->
+                                    <h1 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text"><span class="featured bottom"><span>Logistics</span></span><br>that goes further.</h1>
+                                    <p data-aos="zoom-in" data-aos-delay="2400" class="description bigger">For 20 years working with the most innovative in the field of transport.</p>
+                                   
+                                    <!-- Action -->
+                                    <div data-aos="fade-up" data-aos-delay="2800" class="buttons">
+                                        <div class="d-sm-inline-flex">
+                                            {% comment %} <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a> {% endcomment %}
+                                            <a href="#" class="smooth-anchor ml-sm-4 mt-4 btn outline-button">READ MORE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+     <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consecetur adipisicing elit. Inventore quos, omnis est tenetur quis eum accusantium perspiciatis doloribus! Quod, culpa sequi tempora dolore obcaecati perspiciatis fuga asperiores perferendis illum qui.</p>
+      </div>
+      <div class="modal-footer">
+        {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
+         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2" style="background:#00A6A6">Inform Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading" style="text-align:center">Coal Mine @Kanpur</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        {% comment %} <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div> {% endcomment %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                                        </div>
+                                        {% comment %} <input type="submit" class="btnRegister" style="background:black;" value="Invest"/> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %} <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+      <div class="modal-footer">
+        {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
+        <a href="{% url 'contact' %}"  class="btn btn-primary">Send Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ <section id="partners" class="section-2 partners">
+            <div class="overflow-holder">
+                <div class="container-fluid">
+               <div class="row">
+                 <div class="col-md-12">
+                 <h2 style=" text-align: center;"><span class="featured"><span>Recent </span></span> Updates</h2>
+                  
+
+
+<div class="brand-carousel section-padding owl-carousel" style="background:#111117;">
+  
+
+<!-- Button trigger modal -->
+
+
+
+
+
+
+
+
+{% for card in cards %}
+<div class="single-logo">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{card.heading}}</h5>
+                    <p class="card-text">{{card.description|truncatechars:50}}</p>
+                    <b>expiry_date | {{card.expiry_date}}</b>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background:#00A6A6">Read More</a>
+                </div>
+            </div>
+  </div>
+{% endfor %}
+                
+ </div>
+                 </div>
+               </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Services -->
+        <section id="services" class="section-1 offers featured" >
+            <div class="container">
+            <div class="row items">
+                <div class="col-12 col-md-8 pr-md-4 text">
+                    <div data-aos="fade-up"  class="row intro">
+                        <div class="col-12 p-0">
+                            <span class="pre-title m-0">Our Business Areas</span>
+                            <h2 ><span class="featured"><span>Our</span></span> Overview</h2>
+                            <p>Transportation industry contributed roughly 6.3% of GDP and is majorly    dominated by road sector. More than 50% of freight and 90% of passenger traffic are handled by road. Government as well private investments, rising exports, increasing interstate movement of goods and passengers, growing FMCG sector and rising disposable income are the major drivers of transportation industry in India. In order to boost the connectivity across country, 100% FDI has been allowed in roads and Highway sector via automatic route.</p>
+                            
+                           
+                            <div class="row">
+                                <div class="col-12 p-0 input-group align-self-center">
+                                    <a href="{% url 'about' %}" class="btn primary-button" style="background:#00A6A6">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" class="col-12 col-md-4 item">
+                    <div class="">
+                        <div class="col-12">
+                             <img src="{% static 'assets/images/truck5.png' %}" alt="Logo" class="logo"> 
+                         
+                       <h4>Technology</h4>
+                            <p>Focused on developing technology solutions adapted to our client's needs.</p>  
+                        </div>
+                    </div>
+                </div>
+              {% comment %} <div data-aos="fade-up" class="col-12 col-md-3 item">
+                    <div class="card">
+                <div class="col-12">
+                            <img src="{% static 'assets/images/gallery-5.jpg' %}" alt="Logo" class="logo">
+                            <h4>Transport</h4>
+                            <p>We develop operational strategies to improve logistical efficiency.</p>
+                        </div> 
+                    </div>
+                </div>  {% endcomment %}
+            </div>
+            </div>
+        </section>
+ 
+        <!-- Skills -->
+       
+        {% comment %} second {% endcomment %}
+        <section id="skills" class="section-2 odd highlights image-right counter skills featured">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 pr-md-5 align-self-center text-center text-md-left text items">
+                        <div data-aos="fade-up"  class="row intro">
+                            <div class="col-12 p-0">
+                                <span class="pre-title m-auto m-md-0"></span>
+                                <h2><span class="featured"><span>The</span></span> Vision</h2>
+                                <p>TRANAGE believes that supporting the transportation industry with contemporary equipment and devices will certainly boost the accuracy, transparency and reliability of clients over transporters. Consequently, a team of skilled professionals and specialists are working hard to identify the major concerns of transportation and to find out innovative and apt solutions for them.</p>
+                                  <div class="col-12 p-0 input-group align-self-center">
+                                    <a href="{% url 'about' %}" class="btn primary-button"  style="background:#00A6A6">READ MORE</a>
+                                </div>
+                              
+                               
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-12 col-md-6 p-0 image">
+                        <img src="{% static 'assets/images/new/n1.jpg' %}" class="fit-image" alt="Fit Image">
+                    </div> 
+                </div>
+            </div>
+        </section>
+  
+        <!-- Partners -->
+        <section id="partners" class="section-3 partners">
+            <div class="overflow-holder">
+                <div class="container">
+               <div class="row">
+                 <div class="col-md-12">
+                 <h2><span class="featured"><span>The</span></span> Mission</h2>
+                   <p>We at TRANAGE, are aimed to setting up an enormous transportation network extended throughout India. We have dreamed for an easy yet secured online medium that can transport bulk material or products from North to South and East to West in pan India swiftly and hassle less.  </p>
+                   <p>TRANAGE is determined its solid presence in pan India and to register 1 million trucks with the platform of Tranage. The design and system is planned to assist transporters and truckers in improving their financials. Thus, Tranage dreams to anchor its name among leading trucking brands.</p>
+                     <div class="col-12 p-0 input-group align-self-center">
+                                    <a href="{% url 'about' %}" class="btn primary-button"  style="background:#00A6A6">READ MORE</a>
+                                </div>
+                 </div>
+               </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+       body {
+background: aliceblue;
+}
+.section-padding{
+padding:60px 0;
+}
+.brand-carousel {
+background: white;
+margin-top: 3%;
+}
+.owl-dots {
+text-align: center;
+margin-top: 4%;
+}
+.owl-dot {
+display: inline-block;
+height: 15px !important;
+width: 15px !important;
+background-color: #878787 !important;
+opacity: 0.8;
+border-radius: 50%;
+margin: 0 5px;
+}
+.owl-dot.active {
+background-color: #000 !important;
+}
+
+        </style>
+
+  <h2 style=" text-align: center;" ><span class="featured"><span>Our</span></span> Clients</h2>
+<div class="brand-carousel section-padding owl-carousel">
+  <div class="single-logo">
+    <img src="{% static 'assets/images/client/BLACKD.png' %}" alt="" style="height:256px;width:256px">
+  </div>
+<div class="single-logo">
+    <img src="{% static 'assets/images/client/BUILDS.png' %}" alt="" style="height:256px;width:256px">
+  </div>
+<div class="single-logo">
+    <img src="{% static 'assets/images/client/MOTEM.png' %}" alt="" style="height:256px;width:256px">
+  </div>
+<div class="single-logo">
+    <img src="{% static 'assets/images/client/SO.png' %}" alt="" style="height:256px;width:256px">
+  </div>
+{% comment %} <div class="single-logo">
+    <img src="{% static 'assets/images/client/TRANAGE.png' %}" alt="">
+  </div> {% endcomment %}
+{% comment %} <div class="single-logo">
+    <img src="{% static 'assets/images/client/BLACKDicon.png' %}" alt="">
+  </div> {% endcomment %}
+</div>
+<script>
+$('.brand-carousel').owlCarousel({
+  loop:true,
+  margin:10,
+  autoplay:true,
+  responsive:{
+    0:{
+      items:1
+    },
+    600:{
+      items:3
+    },
+    1000:{
+      items:5
+    }
+  }
+}) 
+
+</script>
+
+
+
+
+
+
+
+
+        <!-- Blog -->
+        {% comment %} <section id="blog" class="section-4 carousel showcase">
+            <div class="overflow-holder">
+                <div class="container">
+                    <div class="row intro">
+                        <div class="col-12 col-md-9 align-self-center text-center text-md-left">
+                            <span class="pre-title m-auto m-md-0"> </span>
+                            <h2>Our <span class="featured"><span>Team</span></span></h2>
+                          
+                        </div>
+                        <div class="col-12 col-md-3 align-self-end">
+                            <a href="{% url 'team' %}" class="btn mx-auto mr-md-0 ml-md-auto primary-button">SEE ALL</a>
+                        </div>
+                    </div>
+                    <div class="swiper-container mid-slider items" data-perview="3"> 
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-1.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>Arpit Kashyap</a>
+                                       
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Increasing creativity is possible for everyone</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-2.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>Vineet Kashyap</a>
+                                        
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Because market research is part of the business plan</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-3.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>Prakshar Soni </a>
+                                        
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Working from home is now a trend</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-4.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Smith</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>23 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Tips for having a good relationship at work</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-5.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>David Cooper</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>30 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>David Cooper tells about the opening of the new office in Baltimore</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-1.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>Andrea Miller</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>2 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Increasing creativity is possible for everyone</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-2.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Smith</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>9 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Because market research is part of the business plan</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-3.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>Andrea Miller</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>16 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Working from home is now a trend</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-4.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Smith</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>23 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>Tips for having a good relationship at work</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-center item">
+                                <div class="row card p-0 text-center">
+                                    <div class="image-over">
+                                        <img src="{% static 'assets/images/news-5.jpg' %}" alt="Lorem ipsum">
+                                    </div>
+                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>David Cooper</a>
+                                        <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>30 Days Ago</a>
+                                    </div>
+                                    <div class="card-caption col-12 p-0">
+                                        <div class="card-body">
+                                            <a href="#">
+                                                <h4>David Cooper tells about the opening of the new office in Baltimore</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  {% endcomment %}
+
+        {% comment %} <!-- Subscribe -->
+         <section id="subscribe" class="section-5 odd subscribe">
+            <div class="container smaller">
+                <div class="row">
+                    <div class="col-12 col-md-6 m-md-0 intro">
+                        <span class="pre-title m-0">Newsletter</span>
+                        <h2><span class="featured"><span>Know</span></span> First</h2>
+                        <p>Follow closely and receive content about our company and the news of the current market.</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <form action="php/form.php" id="nexgen-subscribe" class="row m-auto items">
+                            <input type="hidden" name="section" value="nexgen_subscribe">
+
+                            <input type="hidden" name="reCAPTCHA">
+                            <!-- Remove this field if you want to disable recaptcha -->
+
+                            <div class="col-12 mt-0 input-group align-self-center item">
+                                <input type="text" name="name" class="form-control less-opacity field-name" placeholder="Name">
+                            </div>
+                            <div class="col-12 input-group align-self-center item">
+                                <input type="email" name="email" class="form-control less-opacity field-email" placeholder="Email">
+                            </div>
+                            <div class="col-12 input-group align-self-center item">
+                                <a data-aos="zoom-in" class="btn primary-button">SUBSCRIBE</a>
+                            </div>
+                            <div class="col-12 item">
+                                <span class="form-alert mt-3 mb-0"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>  {% endcomment %}
+
+        {% comment %} <!-- Contact -->
+        <section id="contact" class="section-6 form contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 pr-md-5 align-self-center text">
+                        <div class="row intro">
+                            <div class="col-12 p-0">
+                                <span class="pre-title m-0">Send a message</span>
+                                <h2>Get in <span class="featured"><span>Touch</span></span></h2>
+                                <p>We will respond to your message as soon as possible.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <form action="php/form.php" id="nexgen-simple-form" class="nexgen-simple-form">
+                                    <input type="hidden" name="section" value="nexgen_form">
+
+                                    <input type="hidden" name="reCAPTCHA">
+                                    <!-- Remove this field if you want to disable recaptcha -->
+
+                                    <div class="row form-group-margin">
+                                        <div class="col-12 col-md-6 m-0 p-2 input-group">
+                                            <input type="text" name="name" class="form-control field-name" placeholder="Name">
+                                        </div>
+                                        <div class="col-12 col-md-6 m-0 p-2 input-group">
+                                            <input type="email" name="email" class="form-control field-email" placeholder="Email">
+                                        </div>
+                                        <div class="col-12 col-md-6 m-0 p-2 input-group">
+                                            <input type="text" name="phone" class="form-control field-phone" placeholder="Phone">
+                                        </div>
+                                        <div class="col-12 col-md-6 m-0 p-2 input-group">
+                                            <i class="icon-arrow-down mr-3"></i>
+                                            <select name="info" class="form-control field-info">
+                                                <option value="" selected disabled>More Info</option>
+                                                <option>Audit & Assurance</option>
+                                                <option>Financial Advisory</option>
+                                                <option>Analytics and M&A</option>
+                                                <option>Middle Marketing</option>
+                                                <option>Legal Consulting</option>
+                                                <option>Regulatory Risk</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 m-0 p-2 input-group">
+                                            <textarea name="message" class="form-control field-message" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="col-12 col-12 m-0 p-2 input-group">
+                                            <span class="form-alert"></span>
+                                        </div>
+                                        <div class="col-12 input-group m-0 p-2">
+                                            <a class="btn primary-button">SEND</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="contacts">
+                            <h4>Example Inc.</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Praesent diam lacus, dapibus sed imperdiet consectetur.</p>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-phone-alt mr-2"></i>
+                                        +1 (305) 1234-5678
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-envelope mr-2"></i>
+                                        hello@example.com
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-map-marker-alt mr-2"></i>
+                                        Main Avenue, 987
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="mt-2 btn outline-button" data-toggle="modal" data-target="#map">VIEW MAP</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         {% endcomment %}
+        <!-- Footer -->
+      {% include 'footer.html' %}
+        <!-- Modal [search] -->
+        <div id="search" class="p-0 modal fade" role="dialog" aria-labelledby="search" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        <i class="icon-close fas fa-arrow-right"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <h2>What are you looking for?</h2>
+                                        <div class="badges">
+                                            <span class="badge"><a href="#">Consulting</a></span>
+                                            <span class="badge"><a href="#">Audit</a></span>
+                                            <span class="badge"><a href="#">Assurance</a></span>
+                                            <span class="badge"><a href="#">Advisory</a></span>
+                                            <span class="badge"><a href="#">Financial</a></span>
+                                            <span class="badge"><a href="#">Capital Markets</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="text" class="form-control" placeholder="Enter Keywords">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button">SEARCH</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [sign] -->
+        <div id="sign" class="p-0 modal fade" role="dialog" aria-labelledby="sign" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        <i class="icon-close fas fa-arrow-right"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/" class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>Sign In</h2>
+                                        <p>Don't have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register">Register now</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button">SIGN IN</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [register] -->
+        <div id="register" class="p-0 modal fade" role="dialog" aria-labelledby="register" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        <i class="icon-close fas fa-arrow-right"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/" class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>Register</h2>
+                                        <p>Have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#sign">Sign In</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="text" class="form-control" placeholder="Name" required>
+                                    </div>
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                    </div>
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button">REGISTER</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [map] -->
+        <div id="map" class="p-0 modal fade" role="dialog" aria-labelledby="map" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header absolute" data-dismiss="modal">
+                        <i class="icon-close fas fa-arrow-right"></i>
+                    </div>
+                    <div class="modal-body p-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.123073808986!2d12.490042215441486!3d41.89021017922119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColiseu!5e0!3m2!1spt-BR!2sbr!4v1594148229878!5m2!1spt-BR!2sbr" width="600" height="450" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [responsive menu] -->
+        <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        <i class="icon-close fas fa-arrow-right"></i>
+                    </div>
+                    <div class="menu modal-body">
+                        <div class="row w-100">
+                            <div class="items p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                            <div class="contacts p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>        
+        
+
+{% endblock content %}
