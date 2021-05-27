@@ -3,6 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 from dashboard.models import Add_update
+from django.shortcuts import render, HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from app.models import Distributor_Model,Investor_Model
+
 # Create your views here.
 def index (request):
     card = Add_update.objects.all()
@@ -37,41 +43,39 @@ def product(request):
     return render(request,'tproduct.html')
 
 def distributor(request):
-    return render(request,'contact2.html')
+     if request.method == "POST":
+        full_name = request.POST.get('name')
+        father_name = request.POST.get('fathername')
+        date_of_birth = request.POST.get('dob')
+        aadhar_no= request.POST.get('aadhar')
+        pan_no= request.POST.get('pancard')
+        education= request.POST.get('education')
+        occupation = request.POST.get('occupation')
+        residential_address = request.POST.get('residential')
+        house_no = request.POST.get('house')
+        street = request.POST.get('street')
+        block = request.POST.get('block')
+        distric= request.POST.get('distric')
+        state = request.POST.get('state')
+        mobile_no=  request.POST.get('mobile')
+        alternate_mobile_no= request.POST.get('mobile_alt')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        try :
+            data = Distributor_Model.objects.get(distric=distric)
+        except Distributor_Model.DoesNotExist:
+            data = None
+        if data is not None :
+            pass
+        else:
+            all_data = Distributor_Model(full_name=full_name,father_name=father_name,date_of_birth=date_of_birth,aadhar_no=aadhar_no,pan_no=pan_no,education=education,occupation=occupation,residential_address=residential_address,house_no=house_no,street=street,block=block,distric=distric,state=state,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,message=message)
+            all_data.save()
+            return redirect('index')
+     return render(request,'contact2.html')
 
 def investor(request):
-    return render(request,'investor.html')
+    return render(request,'investor2.html')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
-
-# Signup View Function
-# def sign_up(request):
-#  if request.method == "POST":
-#   fm = SignUpForm(request.POST)
-#   if fm.is_valid():
-#    messages.success(request, 'Account Created Successfully !!') 
-#    fm.save()
-#  else: 
-#   fm = SignUpForm()
-#  return render(request, 'enroll/signup.html', {'form':fm})
 
 # Login View Function
 def user_login(request):
@@ -94,20 +98,27 @@ def user_login(request):
     return HttpResponseRedirect('/dashboard/')
 
 
-# def user_login(request):
-#   if not request.user.is_authenticated:
-#     if request.method == "POST":
-#       fm = AuthenticationForm(request=request, data=request.POST)
-#       if fm.is_valid():
-#         uname = fm.cleaned_data['username']
-#         upass = fm.cleaned_data['password']
-#         user = authenticate(username=uname, password=upass)
-#         if user is not None:
-#           login(request, user)
-#           messages.success(request, 'Logged in successfully !!')
-#           return HttpResponseRedirect('/dashboard/')
-#     else: 
-#       fm = AuthenticationForm()
-#     return render(request, 'login.html', {'form':fm})
-#   else:
-#     return HttpResponseRedirect('/dashboard/')
+####################      distributor Form View Function         ###################################
+
+def investor_view(request):
+    if request.method == "POST":
+        full_name = request.POST.get('name')
+        company = request.POST.get('company')
+        occupation = request.POST.get('occupation')
+        aadhar_no= request.POST.get('aadhar')
+        residential_address = request.POST.get('residential')
+        corresponding_address = request.POST.get('corresponding')
+        mobile_no=  request.POST.get('mobile')
+        alternate_mobile_no= request.POST.get('mobile_alt')
+        email = request.POST.get('email')
+        invest= request.POST.get('invest')
+        all_data = Investor_Model(full_name=full_name,company=company,occupation=occupation,aadhar_no=aadhar_no,residential_address=residential_address,corresponding_address=corresponding_address,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,invest_capacity=invest)
+        all_data.save()
+        return redirect('index')
+
+
+####################      End distributor Form View Function         ###################################
+
+
+
+####################      investor Form View Function         ###################################

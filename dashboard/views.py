@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Add_update,Add_project
+from app.models import Distributor_Model,Investor_Model
 from api.models import *
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -29,6 +30,14 @@ def all_driver_list(request):
 def all_vehicle_list(request):
     vehicle = VehicleRegistraionModel.objects.all()
     return render(request,'dash/elements/vehicle_list.html',{'vehicles':vehicle})
+
+def distributor_list(request):
+    distributor = Distributor_Model.objects.all()
+    return render(request,'dash/elements/distributor_list.html',{'distributors':distributor})
+
+def investor_list(request):
+    investor = Investor_Model.objects.all()
+    return render(request,'dash/elements/investor_list.html',{'investors':investor})
 
 def add_card(request):
     if request.method =='POST':

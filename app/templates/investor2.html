@@ -14,7 +14,7 @@
                 <div id="particles-1" class="full-image" data-mask="50"></div>     
                 
                 <!-- Media -->
-                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/back10.jpg' %})" data-swiper-parallax="-50%"></div>
+                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/Dis.png' %})" data-swiper-parallax="-50%"></div>
 
                 <div class="swiper-wrapper">
 
@@ -91,13 +91,13 @@
         </section>
 
 <section class="section-3 odd offers" style="background:black">
-            <div class="container">
-                <div class="row intro">
+            <div class="container ">
+                <div class="row intro  smooth-anchor outline">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
 
                           <h2 style=" text-align: center;"><span class="featured"><span>Tranage </span></span> Distributor</h2>
-                        <p class="smooth-anchor outline-button">Tranage is a focus oriented programme to empower the transparency and efficiency in the transportation sector. Tranage empowers people to forge strapping and enduring relationship with our business partners. SCGtranage is seeking business partners to set up an authorized dealership. If you are passionate about your skills and relish towards success, contact us to explore the world of success. Be a part of our journey and join the profitable venture. We cultivate solutions for every endeavour to develop unparalleled futuristic sprouting.
-<br><br>Submit the application down below for further assistance or for further enquiry, please feel free to write us : email id. along with your name and contact details. </p>
+                        <p  class="title effect-static-text smooth-anchor ">At TRANAGE, we profess the future is "optimistic", the past is "chronicle" but the present delivers what we possessed in the past and will pay back in future. TRANAGE was the idea of the past, implemented in the present and will be the future of this industry. We inveigh the accuracy, reliableness and transparency in transportation business. The predicament requires stark and rigid solutions thus tranage is ready to deliver boosting business solutions. Indeed, there is always ancillary market value for the solution to the root cause. That's what separates us from the other platform with the sense of "trust, transparency, and a complete angle of 360 security". Your social investment can bring revolution and change in transportation with a great value return. We inspire to encourage our investors to get entitled to TRANAGE. We offer you to bring the veracious approach of investing in the right strategic business. Our shareholders are the souls of our business. Believe in yourself to be a part of TRANAGE. Dear Investor, shake our hands and frame the future together, be the part of our journey because 
+<br><br> <h2 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text"> <span class="featured"><span>"Your one right step can decrease the Milestone of your journey."</span></span></h2></p>
                        
                     </div>
                     <div class="col-12 col-md-12 align-self-end">
@@ -108,77 +108,50 @@
                 <div class="row justify-content-center text-center items">
                     <div class="col-12 item">
                         <div class="card ">
-                        <h2 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text">Distributor <span class="featured"><span>Form</span></span></h2>
-                          <form action="" method="POST" class="nexgen-simple-form ">
-                                       {% csrf_token %}
+                        <h2  data-aos-delay="2000" class="title effect-static-text">Investor <span class="featured"><span>Form</span></span></h2>
+                          <form action="{% url 'investor_view' %}" method="POST" class="nexgen-simple-form">
+                              {% csrf_token %}
+
                                         <!-- Remove this field if you want to disable recaptcha -->
     
-                                        <div class="row form-group-margin">
+                                        <div class="row form-group-margin" style="">
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="name" class="form-control field-name" placeholder="Full Name" required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="fathername" class="form-control field-name" placeholder="Father Name" required>
+                                                <input required type="text" name="name" class="form-control field-name" placeholder="Full Name">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="date" name="dob" class="form-control field-name" placeholder="Date of Birth" required>
+                                                <input required type="text" name="company" class="form-control field-name" placeholder="Company/Organization">
+                                            </div>
+                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
+                                                <input required type="text" name="occupation" class="form-control field-phone" placeholder="Occupation">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No." required>
+                                                <input required type="text" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No.">
+                                            </div>
+                                               <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
+                                                <input required type="text" name="residential" class="form-control field-phone" placeholder="Residential Address">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="pancard" class="form-control field-phone" placeholder="PAN Card No." required>
+                                                <input required type="text" name="corresponding" class="form-control field-phone" placeholder="Corresponding Address">
+                                            </div>
+                                              <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
+                                                <input required type="text" name="mobile" class="form-control field-phone" placeholder="Mobile No.">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="education" class="form-control field-phone" placeholder="Maximum Education" required> 
+                                                <input required type="text" name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No.">
+                                            </div>
+                                              
+                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
+                                                <input required type="email" name="email" class="form-control field-phone" placeholder="Email Address">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="occupation" class="form-control field-phone" placeholder="Occupation" required>
+                                                <input required type="text" name="invest" class="form-control field-phone" placeholder="Investment Capacity">
                                             </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="residential" class="form-control field-phone" placeholder="Residential Address" required>
-                                            </div>
-                                              <div class="col-12 m-0 p-2 input-group">
-                                                <span class="pre-title m-0">Postal Address</span>
-                                            </div>
-                                          
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="house" class="form-control field-phone" placeholder="House No." required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="street" class="form-control field-phone" placeholder="Street" required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="block" class="form-control field-phone" placeholder="Block" required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="distric" class="form-control field-phone" placeholder="Distric" required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="state" class="form-control field-phone" placeholder="State" required>
-                                            </div>
-                                            
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="mobile" class="form-control field-phone" placeholder="Mobile No." required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No." required>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="email" name="email" class="form-control field-phone" placeholder="Email Address" required>
-                                            </div>
-                                           
-                                            <div class="col-12 m-0 p-2 input-group">
-                                                <textarea name="message" class="form-control field-message" placeholder="Message"></textarea>
-                                            </div>
-                                        
-                                            <div class="col-12 input-group m-0 p-2">
-                                           <input type="Submit" style="color:white " class="btn primary-button" placeholder="Submit">
+                                               <div class="col-12 input-group m-0 p-2">
+                                                  <input required type="Submit" style="color:white " class="btn primary-button" placeholder="Submit">
                                                 
                                             </div>
-
                                         </div>
-                                    </form> 
+                                    </form>
                                                
                         </div>
                     </div>
