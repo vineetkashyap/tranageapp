@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tranage Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+    <!-- Custom Stylesheet -->
+     <link href="{% static 'vendor/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+    <!-- Clockpicker -->
+    <link href="{% static 'vendor/clockpicker/css/bootstrap-clockpicker.min.css' %}" rel="stylesheet">
+    <!-- asColorpicker -->
+    <link href="{% static 'vendor/jquery-asColorPicker/css/asColorPicker.min.css' %}" rel="stylesheet">
+    <!-- Material color picker -->
+    <link href="{% static 'vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet">
+    <!-- Pick date -->
+    <link rel="stylesheet" href="{% static 'vendor/pickadate/themes/default.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/pickadate/themes/default.date.css' %}">
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+               
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+	
+
+
+		
+		
+        <!--**********************************
+            Header start
+        ***********************************-->
+
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        {% include 'dash/elements/sidebar.html' %}
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<!-- Add Project -->
+				<div class="modal fade" id="addProjectSidebar">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Create Project</h5>
+								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="text-black font-w500">Project Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Deadline</label>
+										<input type="date" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Client Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-primary">CREATE</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Add A New Employee</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form method="POST" action={% url 'add_employee' %}> 
+                                    {% csrf_token %}
+                                       <div class="form-group">
+                                            <input name="employee_name" class="form-control form-control-lg" type="text" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="employee_email" class="form-control form-control-lg" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="employee_mobile" class="form-control form-control-lg" type="text" placeholder="Mobile no.">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="assigned_project" class="form-control form-control-lg" type="text" placeholder="Project Assigned To">
+                                        </div>
+
+                                    
+                                    
+                                        <button type="submit" class="btn btn-primary">Add Card</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                         
+				
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">SCG IT Team</a> 2021</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <!-- Required vendors -->
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+	
+    <!-- Daterangepicker -->
+    <!-- momment js is must -->
+    <script src="{% static 'vendor/moment/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+    <!-- clockpicker -->
+    <script src="{% static 'vendor/clockpicker/js/bootstrap-clockpicker.min.js' %}"></script>
+    <!-- asColorPicker -->
+    <script src="{% static 'vendor/jquery-asColor/jquery-asColor.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery-asGradient/jquery-asGradient.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js' %}"></script>
+    <!-- Material color picker -->
+    <script src="{% static 'vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+    <!-- pickdate -->
+    <script src="{% static 'vendor/pickadate/picker.js' %}"></script>
+    <script src="{% static 'vendor/pickadate/picker.time.js' %}"></script>
+    <script src="{% static 'vendor/pickadate/picker.date.js' %}"></script>
+
+
+
+    <!-- Daterangepicker -->
+    <script src="{% static 'js/plugins-init/bs-daterange-picker-init.js' %}"></script>
+    <!-- Clockpicker init -->
+    <script src="{% static 'js/plugins-init/clock-picker-init.js' %}"></script>
+    <!-- asColorPicker init -->
+    <script src="{% static 'js/plugins-init/jquery-asColorPicker.init.js' %}"></script>
+    <!-- Material color picker init -->
+    <script src="{% static 'js/plugins-init/material-date-picker-init.js' %}"></script>
+    <!-- Pickdate -->
+    <script src="{% static 'js/plugins-init/pickadate-init.js' %}"></script>
+
+
+
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/deznav-init.js' %}"></script>
+    
+    
+    
+</body>
+</html>

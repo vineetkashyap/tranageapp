@@ -856,7 +856,7 @@
                                           {% for owner  in owners %}
 										      <tr >
                                                 <td><img class="rounded-circle" width="35" src="{% static 'images/profile/small/pic1.jpg' %}" alt=""></td>
-                                                <td>{{owner.name}}</td>
+                                                <td><a href ={% url 'truck_owner_detail' owner.id  %} >{{owner.name}}</a></td>
                                                 <td><a href="javascript:void(0);"><strong>{{owner.mobile_number}}</strong></a></td>
                                                 <td><a href="javascript:void(0);"><strong>{{owner.email_id}}</strong></a></td>
                                                 <td>{{owner.register_on}}</td>

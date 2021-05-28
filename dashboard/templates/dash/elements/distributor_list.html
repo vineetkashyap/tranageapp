@@ -856,10 +856,10 @@
                                           {% for distributor  in distributors %}
 										      <tr >
                                                 <td><img class="rounded-circle" width="35" src="{% static 'images/profile/small/pic1.jpg' %}" alt=""></td>
-                                                <td>{{vehicle.owner_name}}</td>
-                                                <td><a href="javascript:void(0);"><strong>{{vehicle.owner_contact_number}}</strong></a></td>
-                                                <td><a href="javascript:void(0);"><strong>{{vehicle.vehicle_registration_number}}</strong></a></td>
-                                                <td>{{vehicle.registered_on}}</td>
+                                                <td>{{distributor.full_name}}</td>
+                                                <td><a href="javascript:void(0);"><strong>{{distributor.mobile_no}}</strong></a></td>
+                                                <td><a href="javascript:void(0);"><strong>{{distributor.occupation}}</strong></a></td>
+                                                <td>{{distributor.email}}</td>
                                                 <td>
 													<div class="d-flex">
 														<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>

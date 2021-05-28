@@ -23,8 +23,8 @@
                                     <h1 class="title effect-static-text">GO TO DASHBOARD</h1>
                                     
                                     <!-- Action -->
-                                    <form action=""  class="nexgen-simple-form" method="POST">
-                                    {% csrf_token %}
+                                    <form action="{% url 'user_login' %}"  class="nexgen-simple-form" method="POST">
+                                             {% csrf_token %}
                                         <!-- Remove this field if you want to disable recaptcha -->
     
                                         <div class="row form-group-margin">

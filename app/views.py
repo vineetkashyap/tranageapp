@@ -1,12 +1,9 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate,login,logout
 from dashboard.models import Add_update
-from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, logout,login
 from app.models import Distributor_Model,Investor_Model
 
 # Create your views here.
@@ -32,8 +29,8 @@ def partner(request):
 def  blog(request):
     return render(request,'blog.html')
 
-def  login(request):
-    return render(request,'login.html')
+# def  login(request):
+#     return render(request,'login.html')
 
 def registration(request):
     return render(request,'registrationform.html')
@@ -66,7 +63,7 @@ def distributor(request):
         except Distributor_Model.DoesNotExist:
             data = None
         if data is not None :
-            pass
+            messages.success(request, 'Region Not Available')
         else:
             all_data = Distributor_Model(full_name=full_name,father_name=father_name,date_of_birth=date_of_birth,aadhar_no=aadhar_no,pan_no=pan_no,education=education,occupation=occupation,residential_address=residential_address,house_no=house_no,street=street,block=block,distric=distric,state=state,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,message=message)
             all_data.save()
@@ -77,26 +74,32 @@ def investor(request):
     return render(request,'investor2.html')
 
 
-# Login View Function
-def user_login(request):
+
+
+
+
+
+def user_login(request,user=None):
   if not request.user.is_authenticated:
     if request.method == "POST":
-        uname = request.POST.get('username')
-        upass =  request.POST.get('password')
+        uname = request.POST['username']
+        upass = request.POST['password']
         user = authenticate(username=uname, password=upass)
         if user is not None:
-          login(request, user)
+          login(request,user)
           messages.success(request, 'Logged in successfully !!')
           return HttpResponseRedirect('/dashboard/')
-        else:
-             return render(request, 'login.html')
     else: 
-        return render(request, 'login.html')
-      
-    
+      return render(request, 'login.html')
   else:
     return HttpResponseRedirect('/dashboard/')
 
+# Login View Function
+
+# Logout
+def user_logout(request):
+  logout(request)
+  return redirect('index')
 
 ####################      distributor Form View Function         ###################################
 

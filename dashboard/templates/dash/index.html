@@ -521,46 +521,15 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
+													{% for owner in owners %}
+													   <tr>
+														<td class="text-left">{{owner.name}}</td>
+														<td>{{owner.email_id}}</td>
+														<td class="text-right">{{owner.mobile_number}}</td>
 													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-													<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-													<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
+													{% endfor %}
+												
+											
 												</tbody>
 											</table>
 										</div>
@@ -610,52 +579,21 @@
 											<table class="table text-center bg-warning-hover tr-rounded order-tbl">
 												<thead>
 													<tr>
-														<th class="text-left">Price</th>
-														<th class="text-center">Amount</th>
-														<th class="text-right">Total</th>
+														<th class="text-left">Name</th>
+														<th class="text-center">Email</th>
+														<th class="text-right">Mobile</th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
+													{% for transporter in transporters %}
+													 <tr>
+														<td class="text-left">{{transporter.contact_person}}</td>
+														<td>{{transporter.email}}</td>
+														<td class="text-right">{{transporter.mobile}}</td>
 													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-													<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-													<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-													<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
-													<tr>
-														<td class="text-left">Sooraj</td>
-														<td>sooraj@gmail.com</td>
-														<td class="text-right">9935204578</td>
-													</tr>
+													
+													{% endfor %}
+						
 												</tbody>
 											</table>
 										</div>

@@ -9,8 +9,8 @@ class Employee_model(models.Model):
     employee_mobile = models.CharField(max_length=100)
     user_type = models.CharField(default="employee", max_length=50)
     assigned_project = models.CharField(max_length=100)
-    trip_added  = models.CharField(max_length=50)
-    trip_verified = models.CharField(max_length=50)
+    trip_added  = models.CharField(max_length=50,default=0)
+    trip_verified = models.CharField(max_length=50,default=0)
 
 class Add_update(models.Model):
     heading = models.CharField(max_length=500)

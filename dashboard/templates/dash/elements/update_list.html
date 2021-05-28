@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tranage Dashboard</title>
+    <!-- Favicon icon -->
+   
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/star-rating/star-rating-svg.css' %}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+    <!-- Datatable -->
+    <link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+       
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+
+		{% include 'dash/elements/sidebar.html' %}
+		
+        <!--**********************************
+            Header start
+        ***********************************-->
+       
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<!-- Add Project -->
+				<div class="modal fade" id="addProjectSidebar">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Create Project</h5>
+								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="text-black font-w500">Project Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Deadline</label>
+										<input type="date" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Client Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-primary">CREATE</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <p class="mb-0">Your business dashboard template</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for card in cards %}
+                     <div class="col-lg-12 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row m-b-30">
+                                    <div class="col-md-5 col-xxl-12">
+                                        <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                                            <div class="new-arrivals-img-contnent">
+                                                <img class="img-fluid" src="images/product/2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-xxl-12">
+                                        <div class="new-arrival-content position-relative">
+                                            <h3><a href="ecom-product-detail.html">{{card.heading}}</a></h3>
+                                            <div class="comment-review star-rating">
+                                                {% comment %} <ul>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star-half-empty"></i></li>
+                                                    <li><i class="fa fa-star-half-empty"></i></li>
+                                                </ul> {% endcomment %}
+                                                {% comment %} <span class="review-text">(34 reviews) / </span><a class="product-review" href=""  data-toggle="modal" data-target="#reviewModal">Write a review?</a>
+												<p class="price">$320.00</p> {% endcomment %}
+                                            </div>
+                                            <p>Location: <span class="item"> {{card.location}} <i class="fa fa-check-circle text-success"></i></span></p>
+                                            <p>Expiry Date: <span class="item">{{card.expiry_date}}</span> </p>
+                                
+                                            <p class="text-content">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                    {% endfor %}
+					
+				
+					
+					
+					
+					<!-- review -->
+					<div class="modal fade" id="reviewModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Review</h5>
+									<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="text-center mb-4">
+											<img class="img-fluid rounded" width="78" src="./images/avatar/1.jpg" alt="DexignZone">
+										</div>
+										<div class="form-group">
+											<div class="rating-widget mb-4 text-center">
+												<!-- Rating Stars Box -->
+												<div class="rating-stars">
+													<ul id="stars">
+														<li class="star" title="Poor" data-value="1">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Fair" data-value="2">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Good" data-value="3">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Excellent" data-value="4">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="WOW!!!" data-value="5">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Comment" rows="5"></textarea>
+										</div>
+										<button class="btn btn-success btn-block">RATE</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="" target="_blank"> SCG IT Team 2021</a> 2021</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <!-- Datatable -->
+    <script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/deznav-init.js' %}"></script>
+    
+    
+</body>
+</html>

@@ -193,7 +193,7 @@ body {
                      
                        {% if not request.user.is_authenticated %}
                           <li class="nav-item dropdown">
-                            <a href="{% url 'loginn' %}" class="nav-link button2 mx-3">LOGIN <i class="icon-arrow-down"></i></a>
+                            <a href="{% url 'user_login' %}" class="nav-link">LOGIN <i class="icon-arrow-down"></i></a>
                           
                         </li>
                            {% endif %}
@@ -205,7 +205,7 @@ body {
                     <ul class="navbar-nav icons">
                         <li class="nav-item dropdown">
                                           
-                          <a class="button" href="#partners">UPDATES</a>
+                          <a class="button" style="color:#ffffff" href="#partners">UPDATES</a>
 
                         </li>
                     </ul>

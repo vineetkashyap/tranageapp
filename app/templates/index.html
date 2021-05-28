@@ -184,11 +184,25 @@
   </div>
 </div>
 
+<style>
+ :root {
+  --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+}
+
+body {
+  background: #111 !important;
+}
+
+.card {
+  background: #222;
+  border: 1px solid #dd2476;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+}
 
 
-
-
- <section id="partners" class="section-2 partners">
+</style>
+<section id="partners" class="section-2 partners">
             <div class="overflow-holder">
                 <div class="container-fluid">
                <div class="row">
@@ -202,36 +216,25 @@
 
 <!-- Button trigger modal -->
 
-
-
-
-
-
-
-
-{% for card in cards %}
-<div class="single-logo">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{card.heading}}</h5>
-                    <p class="card-text">{{card.description|truncatechars:50}}</p>
-                    <b>expiry_date | {{card.expiry_date}}</b>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background:#00A6A6">Read More</a>
+            {% for card in cards %}
+            <div class="single-logo">
+                        <div class="card mx-5" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{card.heading}}</h5>
+                                <p class="card-text">{{card.description|truncatechars:60}}</p>
+                                <b>{{card.expiry_date}}</b>
+                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background:#00A6A6">Read More</a>
+                            </div>
+                        </div>
+            </div>
+            {% endfor %}
+                                
                 </div>
             </div>
-  </div>
-{% endfor %}
-                
- </div>
-                 </div>
-               </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
+        </div>
+      </div>
+    </div>
+</section>
 
 
 

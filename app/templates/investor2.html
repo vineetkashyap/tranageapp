@@ -7,15 +7,14 @@
 
 
 <!------ Include the above in your HEAD tag ---------->
-  <section id="slider" class="hero p-0">
+ <section id="slider" class="hero p-0">
             <div class="swiper-container full-slider animation slider-h-100 slider-h-auto">
 
                 <!-- Particles -->
                 <div id="particles-1" class="full-image" data-mask="50"></div>     
                 
                 <!-- Media -->
-                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/Dis.png' %})" data-swiper-parallax="-50%"></div>
-
+                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/Invest/banner2.png' %});object-fit:none;" data-swiper-parallax="-50%"></div>             
                 <div class="swiper-wrapper">
 
                     <!-- Item 1 -->
@@ -27,13 +26,12 @@
 
                                     <!-- Content -->
                                     <h1 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text">We Share <br><span class="featured"><span>Good Ideas</span></span></h1>
-                                    <p data-aos="zoom-in" data-aos-delay="2400" class="description">Escape the comfort zone and achieve better results with the help of experts who understand the subject.</p>
+                                   
 
                                     <!-- Action -->
                                     <div data-aos="fade-up" data-aos-delay="2800" class="buttons">
                                         <div class="d-sm-inline-flex">
-                                            <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a>
-                                            <a href="#services" class="smooth-anchor ml-sm-4 mt-4 btn outline-button">READ MORE</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -49,13 +47,12 @@
 
                                     <!-- Content -->
                                     <h2 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text">Ready <span class="featured"><span>Team</span></span></h2>
-                                    <p data-aos="zoom-in" data-aos-delay="800" class="description smaller mr-auto ml-auto">No matter what your company needs, we will be ready to assist you in the best possible way.</p>
+                                   
                                    
                                     <!-- Action -->
                                     <div data-aos="fade-up" data-aos-delay="1200" class="buttons">
                                         <div class="d-sm-inline-flex">
-                                            <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a>
-                                            <a href="#services" class="smooth-anchor ml-sm-4 mt-4 btn outline-button">READ MORE</a>
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -71,13 +68,12 @@
 
                                     <!-- Content -->
                                     <h2 data-aos="zoom-in" data-aos-delay="400" class="title effect-static-text">Talk to a<br><span class="featured"><span>Consultant</span></span></h2>
-                                    <p data-aos="zoom-in" data-aos-delay="800" class="description">Do not miss the opportunity to achieve better results and solidity in the market.</p>
+                                   
 
                                     <!-- Action -->
                                     <div data-aos="fade-up" data-aos-delay="1200" class="buttons">
                                         <div class="d-sm-inline-flex">
-                                            <a href="#contact" class="smooth-anchor mt-4 btn primary-button">GET IN TOUCH</a>
-                                            <a href="#services" class="smooth-anchor ml-sm-4 mt-4 btn outline-button">READ MORE</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +91,7 @@
                 <div class="row intro  smooth-anchor outline">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
 
-                          <h2 style=" text-align: center;"><span class="featured"><span>Tranage </span></span> Distributor</h2>
+                          <h2 style=" text-align: center;"><span class="featured"><span>Tranage </span></span> Investor</h2>
                         <p  class="title effect-static-text smooth-anchor ">At TRANAGE, we profess the future is "optimistic", the past is "chronicle" but the present delivers what we possessed in the past and will pay back in future. TRANAGE was the idea of the past, implemented in the present and will be the future of this industry. We inveigh the accuracy, reliableness and transparency in transportation business. The predicament requires stark and rigid solutions thus tranage is ready to deliver boosting business solutions. Indeed, there is always ancillary market value for the solution to the root cause. That's what separates us from the other platform with the sense of "trust, transparency, and a complete angle of 360 security". Your social investment can bring revolution and change in transportation with a great value return. We inspire to encourage our investors to get entitled to TRANAGE. We offer you to bring the veracious approach of investing in the right strategic business. Our shareholders are the souls of our business. Believe in yourself to be a part of TRANAGE. Dear Investor, shake our hands and frame the future together, be the part of our journey because 
 <br><br> <h2 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text"> <span class="featured"><span>"Your one right step can decrease the Milestone of your journey."</span></span></h2></p>
                        
@@ -145,6 +141,13 @@
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input required type="text" name="invest" class="form-control field-phone" placeholder="Investment Capacity">
+                                            </div>
+                                            <div class="col-12 col-12 m-0 pl-md-2">
+                                                <span class="form-alert">
+                                                 {% if messages %}
+    <ul class="messagelist">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+    {% endif %}
+                                                </span>
                                             </div>
                                                <div class="col-12 input-group m-0 p-2">
                                                   <input required type="Submit" style="color:white " class="btn primary-button" placeholder="Submit">

@@ -14,7 +14,7 @@
                 <div id="particles-1" class="full-image" data-mask="50"></div>     
                 
                 <!-- Media -->
-                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/back10.jpg' %})" data-swiper-parallax="-50%"></div>
+                <div class="parallax-x-bg" style="background-image:url({% static 'assets/images/Dist/banner2.png' %})" data-swiper-parallax="-50%"></div>
 
                 <div class="swiper-wrapper">
 
@@ -152,7 +152,7 @@
                                                 <input type="text" name="block" class="form-control field-phone" placeholder="Block" required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="distric" class="form-control field-phone" placeholder="Distric" required>
+                                                <input type="text" name="distric" class="form-control field-phone" placeholder="Distric"  style="text-transform:capitalize"  required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input type="text" name="state" class="form-control field-phone" placeholder="State" required>
@@ -171,7 +171,13 @@
                                             <div class="col-12 m-0 p-2 input-group">
                                                 <textarea name="message" class="form-control field-message" placeholder="Message"></textarea>
                                             </div>
-                                        
+                                         <div class="col-12 col-12 m-0 pl-md-2">
+                                                <span class="form-alert">
+                                                 {% if messages %}
+    <ul class="messagelist">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+    {% endif %}
+                                                </span>
+                                            </div>
                                             <div class="col-12 input-group m-0 p-2">
                                            <input type="Submit" style="color:white " class="btn primary-button" placeholder="Submit">
                                                 
