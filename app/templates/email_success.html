@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Header -->
+{% include 'header.html' %}
+    {% include 'preloader.html' %}
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+ <section class="section-3 odd offers" style="background:black">
+            <div class="container bg-dark" style="background:black">
+                <div class="row justify-content-center items" style="background:black">
+                    <div class="col-12 col-md-6 col-lg-4 item" style="background:black">
+                        <div class="card">
+                            <i class="icon icon-organization"></i>
+                            <h4>Thank You</h4>
+                            <p>We will contect you as soon as possible</p>
+                            <a href="{% url 'contact' %}"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+{% endblock content %}

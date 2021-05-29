@@ -84,7 +84,9 @@ body {
   50% { background-color: #004242; box-shadow: 0 0 40px #004242; }
   100% { background-color: #00A6A6; box-shadow: 0 0 3px #00A6A6; }
 }
-
+.bb{
+    color:black;
+}
 </style>  
 
             <!-- Top Navbar -->
@@ -157,11 +159,11 @@ body {
                     <!-- Navbar Items -->
                     <ul class="navbar-nav items">
                         <li class="nav-item dropdown">
-                            <a href="{% url 'index' %}" class="nav-link">OVERVIEW <i class="icon-arrow-down" ></i></a>
+                            <a style="color:#fff;font-weight:1000" href="{% url 'index' %}" class="nav-link bb">OVERVIEW <i class="icon-arrow-down" ></i></a>
                            
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">FOR YOU <i class="icon-arrow-down" disabled ="disabled "></i></a>
+                            <a style="color:#fff;font-weight:1000" href="#" class="bb nav-link ">FOR YOU <i class="icon-arrow-down" disabled ="disabled "></i></a>
                                <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="{% url 'service' %}" class="nav-link">Our Services</a></li>
                                 <li class="nav-item"><a href="{% url 'product' %}" class="nav-link">Our Product</a></li>
@@ -171,7 +173,7 @@ body {
                             
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">OPPORTUNITY <i class="icon-arrow-down" disabled ="disabled "></i></a>
+                            <a style="color:#fff;font-weight:1000" href="#" class="nav-link">OPPORTUNITY <i class="icon-arrow-down" disabled ="disabled "></i></a>
                               <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="{% url 'distributor' %}" class="nav-link">As Distributor</a></li>
                                 <li class="nav-item"><a href="{% url 'investor' %}" class="nav-link">As Investor</a></li>
@@ -182,18 +184,18 @@ body {
                      
                         
                         <li class="nav-item ">
-                            <a href="{% url 'contact' %}" class="nav-link">CONTACT <i class="icon-arrow-down"></i></a>
+                            <a style="color:#fff;font-weight:1000" href="{% url 'contact' %}" class="nav-link">CONTACT <i class="icon-arrow-down"></i></a>
                         </li>
                          {% if request.user.is_authenticated %}
                        <li class="nav-item ">
-                            <a href="{% url 'dashboard' %}" class="nav-link">DASHBOARD<i class="icon-arrow-down"></i></a>
+                            <a style="color:#fff;font-weight:1000" href="{% url 'dashboard' %}" class="nav-link">DASHBOARD<i class="icon-arrow-down"></i></a>
                         </li>
                     {% endif %}
                       
                      
                        {% if not request.user.is_authenticated %}
                           <li class="nav-item dropdown">
-                            <a href="{% url 'user_login' %}" class="nav-link">LOGIN <i class="icon-arrow-down"></i></a>
+                            <a style="color:#fff;font-weight:1000" href="{% url 'user_login' %}" class="nav-link">LOGIN <i class="icon-arrow-down"></i></a>
                           
                         </li>
                            {% endif %}

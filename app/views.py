@@ -1,3 +1,4 @@
+from django import template
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from dashboard.models import Add_update
@@ -73,6 +74,9 @@ def distributor(request):
 def investor(request):
     return render(request,'investor2.html')
 
+def test1(request):
+    return render(request,'con.html')
+
 
 
 
@@ -124,4 +128,22 @@ def investor_view(request):
 
 
 
-####################      investor Form View Function         ###################################
+####################      Send Mail; View Function         ###################################
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+def sendmail(request):
+    name = request.POST['name']
+    email_id = request.POST['email']
+    mobile = request.POST['mobile']
+    message_content  =request.POST['message']
+    template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
+    email = EmailMessage(
+        'Hello Priye Grahak',
+        template,
+        settings.EMAIL_HOST_USER,
+        [settings.EMAIL_HOST_USER],
+    )
+    email.fail_silently=False
+    email.send()
+    return render(request,'email_success.html')

@@ -44,4 +44,9 @@ urlpatterns = [
     path('transporter_detail/<int:id>',dash.transporter_detail,name="transporter_detail"),
     path('agent_detail/<int:id>',dash.agent_detail,name="agent_detail"),
     path('add_employee/',dash.add_employee,name="add_employee"),
+    path('sendmail/',views.sendmail,name="sendmail"),
+
+
+
+    path('con/',views.test1,name='con')
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
