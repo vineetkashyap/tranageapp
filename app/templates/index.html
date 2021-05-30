@@ -31,7 +31,7 @@
                                 <div class="right text-left">
 
                                     <!-- Content -->
-                                    <h1 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text"><span class="featured bottom"><span>Further.</span></span><br>Faster.Safer</h1>
+                                    <h1 data-aos="zoom-in" data-aos-delay="2000" class="title effect-static-text"><span class="featured bottom"><span>Further.</span></span><br>Faster.Safer.</h1>
                                     <p data-aos="zoom-in" data-aos-delay="2400" class="description bigger">We certify swift, uncomplicated and secured transportation services for you.</p>
                                    
                                     <!-- Action -->
@@ -63,7 +63,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consecetur adipisicing elit. Inventore quos, omnis est tenetur quis eum accusantium perspiciatis doloribus! Quod, culpa sequi tempora dolore obcaecati perspiciatis fuga asperiores perferendis illum qui.</p>
+        <p style="color:black">Lorem ipsum dolor sit amet, consecetur adipisicing elit. Inventore quos, omnis est tenetur quis eum accusantium perspiciatis doloribus! Quod, culpa sequi tempora dolore obcaecati perspiciatis fuga asperiores perferendis illum qui.</p>
       </div>
       <div class="modal-footer">
         {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
@@ -86,49 +86,24 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading" style="text-align:center">Coal Mine @Kanpur</h3>
                                 <div class="row register-form">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            <input required type="text" class="form-control" placeholder="Name *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            <input required type="email" class="form-control" placeholder="Your Email *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                            <input required type="mobile" class="form-control" placeholder="contact no. *" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        {% comment %} <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-                                        </div> {% endcomment %}
+                                       
+                                        
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        
+                                        
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                                             <textarea name="message" class="form-control field-message" placeholder="Message"></textarea>
                                         </div>
                                         {% comment %} <input type="submit" class="btnRegister" style="background:black;" value="Invest"/> {% endcomment %}
                                     </div>
@@ -178,7 +153,7 @@
                         </div>
       <div class="modal-footer">
         {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
-        <a href="{% url 'contact' %}"  class="btn btn-primary">Send Details</a>
+        <a href="{% url 'contact' %}"  class="btn btn-primary" style="background:#00A6A6" >Send Details</a>
       </div>
     </div>
   </div>
@@ -195,7 +170,7 @@ body {
 
 .card {
   background: #222;
-  border: 1px solid #dd2476;
+  border: 1px solid #00000;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
   padding-left:40px;
@@ -225,8 +200,8 @@ body {
                                         <div class="card-body">
                                             <h5 style="color:#00A6A6" class="card-title">{{card.heading}}</h5>
                                             <h6 style="color:#00A6A6" class="card-title">Location : {{card.location}}</h6>
-                                            <p class="card-text" >{{card.description|truncatechars:60}}</p>
-                                            <p>Last date : {{card.expiry_date}}</p>
+                                            <p style="font-size:16px;" class="card-text" >{{card.description|truncatechars:60}}</p>
+                                            <p style="font-size:16px;">Last date : {{card.expiry_date}}</p>
                                             
                                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="background:#00A6A6">Read More</a>
                                         </div>
@@ -248,15 +223,15 @@ body {
 
 
         <!-- Services -->
-        <section id="services" class="section-1 offers featured" >
+        <section id="services" class="section-1 offers featured" style="color:#111117;">
             <div class="container">
             <div class="row items">
                 <div class="col-12 col-md-8 pr-md-4 text">
                     <div data-aos="fade-up"  class="row intro">
                         <div class="col-12 p-0">
-                            <span class="pre-title m-0">Our Business Areas</span>
+                            
                             <h2 ><span class="featured"><span>Our</span></span> Overview</h2>
-                            <p>Transportation industry contributed roughly 6.3% of GDP and is majorly    dominated by road sector. More than 50% of freight and 90% of passenger traffic are handled by road. Government as well private investments, rising exports, increasing interstate movement of goods and passengers, growing FMCG sector and rising disposable income are the major drivers of transportation industry in India. In order to boost the connectivity across country, 100% FDI has been allowed in roads and Highway sector via automatic route.</p>
+                            <p style="color:#111117;">Transportation industry contributed roughly 6.3% of GDP and is majorly    dominated by road sector. More than 50% of freight and 90% of passenger traffic are handled by road. Government as well private investments, rising exports, increasing interstate movement of goods and passengers, growing FMCG sector and rising disposable income are the major drivers of transportation industry in India. In order to boost the connectivity across country, 100% FDI has been allowed in roads and Highway sector via automatic route.</p>
                             
                            
                             <div class="row">
@@ -272,8 +247,8 @@ body {
                         <div class="col-12">
                              <img src="{% static 'assets/images/truck5.png' %}" alt="Logo" class="logo"> 
                          
-                       <h4>Technology</h4>
-                            <p>Focused on developing technology solutions adapted to our client's needs.</p>  
+                       <h4 style="color:#111117;">Technology</h4>
+                            <p style="color:#111117;">Focused on developing technology solutions adapted to our client's needs.</p>  
                         </div>
                     </div>
                 </div>
@@ -323,9 +298,9 @@ body {
                 <div class="container">
                <div class="row">
                  <div class="col-md-12">
-                 <h2><span class="featured"><span>The</span></span> Mission</h2>
-                   <p>We at TRANAGE, are aimed to setting up an enormous transportation network extended throughout India. We have dreamed for an easy yet secured online medium that can transport bulk material or products from North to South and East to West in pan India swiftly and hassle less.  </p>
-                   <p>TRANAGE is determined its solid presence in pan India and to register 1 million trucks with the platform of Tranage. The design and system is planned to assist transporters and truckers in improving their financials. Thus, Tranage dreams to anchor its name among leading trucking brands.</p>
+                 <h2><span class="featured" ><span>The</span></span> Mission</h2>
+                   <p style="color:#111117;">We at TRANAGE, are aimed to setting up an enormous transportation network extended throughout India. We have dreamed for an easy yet secured online medium that can transport bulk material or products from North to South and East to West in pan India swiftly and hassle less.  </p>
+                   <p style="color:#111117;">TRANAGE is determined its solid presence in pan India and to register 1 million trucks with the platform of Tranage. The design and system is planned to assist transporters and truckers in improving their financials. Thus, Tranage dreams to anchor its name among leading trucking brands.</p>
                      <div class="col-12 p-0 input-group align-self-center">
                                     <a href="{% url 'about' %}" class="btn primary-button"  style="background:#00A6A6">READ MORE</a>
                                 </div>

@@ -5,7 +5,32 @@
 {% include 'header.html' %}
     {% include 'preloader.html' %}
 
+     <script> 
+   function validation_aadhar()
+       {  
+            var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+           
+            var x=document.getElementById("aadhaar").value;
+           if(regexp.test(x))
+               {
+                 
+                    document.getElementById("aadhaar").placeholder = "Type name here..";
+                    ;
+                    return true;
+                 
+                   
+               }
+        else{ 
+           
+        
+        returnToPreviousPage()
+        document.getElementById("aadhaar").placeholder = "Type name here..";
+        return false;
+              }
+              
+        }
 
+   </script>
 <!------ Include the above in your HEAD tag ---------->
  <section class="section-3 hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
@@ -23,9 +48,9 @@
                                 <div class="right pb-0 text-left">
 
                                     <!-- Content -->
-                                    <h1 class="title effect-static-text" style="color:black">
-                                       
-                                        Distributor  
+                                    <h1 class="title effect-static-text featured" style="color:#000" >
+                                       New trade opportunity leads to profitable adventure. 
+                                    
                                     </h1>
                                     
                                     <div class="row item widget-tags">
@@ -44,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+</section>
 
 <section class="section-3 odd offers" style="background:black">
             <div class="container">
@@ -61,6 +86,8 @@
                        
                     </div>
                 </div>
+           
+             
                 <div class="row justify-content-center text-center items">
                     <div class="col-12 item">
                         <div class="card ">
@@ -74,13 +101,13 @@
                                                 <input type="text" name="name" class="form-control field-name" placeholder="Full Name" required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="fathername" class="form-control field-name" placeholder="Father Name" required>
+                                                <input type="text" name="fathername" class="form-control field-name" placeholder="Last Name" required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="date" name="dob" class="form-control field-name" placeholder="Date of Birth" required>
+                                  <input placeholder="Date Of Birth"	onfocus="(this.type='date')" onfocus="(this.type='date')" type="text" id="dateplaceholder" name="dob" class="form-control "  required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No." required>
+                                                <input type="text" id="aadhaar" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No." required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input type="text" name="pancard" class="form-control field-phone" placeholder="PAN Card No." required>
@@ -135,8 +162,8 @@
                                                 </span>
                                             </div>
                                             <div class="col-12 input-group m-0 p-2">
-                                           <input type="Submit" style="color:white " class="btn primary-button" placeholder="Submit">
-                                                
+                                           <input type="Submit" style="color:white " onclick="validation_aadhar()" class="btn primary-button" placeholder="Submit">
+                                            
                                             </div>
 
                                         </div>
@@ -149,8 +176,7 @@
         </section>
 
 
-
-       
+  
 
         <!-- About -->
         

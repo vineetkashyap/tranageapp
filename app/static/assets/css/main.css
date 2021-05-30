@@ -214,7 +214,8 @@ a:not([href]) i:hover {
 
 p {
     margin: 1.5rem 0;
-    font-size: var(--p-size);
+    font-size:20px;
+    color: #fff;
     font-weight: var(--p-weight);
     line-height: 1.5;
 }
@@ -232,7 +233,7 @@ h1,
     margin-bottom: 1.5rem;
     font-size: var(--h1-size);
     font-weight: var(--h1-weight);
-    line-height: 1.2;
+    
     font-family: var(--h1-font);
     color: var(--primary-t-color);
     -ms-word-wrap: break-word;

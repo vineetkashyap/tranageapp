@@ -68,8 +68,8 @@ def distributor(request):
         else:
             all_data = Distributor_Model(full_name=full_name,father_name=father_name,date_of_birth=date_of_birth,aadhar_no=aadhar_no,pan_no=pan_no,education=education,occupation=occupation,residential_address=residential_address,house_no=house_no,street=street,block=block,distric=distric,state=state,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,message=message)
             all_data.save()
-            return redirect('index')
-     return render(request,'contact2.html')
+            return render(request,'distributor_success.html')
+     return render(request,'con.html')
 
 def investor(request):
     return render(request,'investor2.html')
@@ -121,7 +121,7 @@ def investor_view(request):
         invest= request.POST.get('invest')
         all_data = Investor_Model(full_name=full_name,company=company,occupation=occupation,aadhar_no=aadhar_no,residential_address=residential_address,corresponding_address=corresponding_address,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,invest_capacity=invest)
         all_data.save()
-        return redirect('index')
+        return render(request,'investor_success.html')
 
 
 ####################      End distributor Form View Function         ###################################
