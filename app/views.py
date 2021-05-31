@@ -38,7 +38,7 @@ def registration(request):
 
 
 def product(request):
-    return render(request,'tproduct.html')
+    return render(request,'productpage.html')
 
 def distributor(request):
      if request.method == "POST":

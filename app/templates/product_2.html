@@ -26,7 +26,6 @@
         <link rel="apple-touch-icon" href="{% static 'assets/images/apple-touch-icon.png' %}">
         <link rel="apple-touch-icon" sizes="72x72" href="{% static 'assets/images/apple-touch-icon-72x72.png' %}">
         <link rel="apple-touch-icon" sizes="114x114" href="{% static 'assets/images/apple-touch-icon-114x114.png' %}">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <!-- ==============================================
         Vendor Stylesheet
         =============================================== -->
@@ -84,195 +83,135 @@
             <!-- Navbar -->
          
         </header>
-<section class="section-3 hero p-0 odd">
-            <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
 
-                <div class="swiper-wrapper">
-
-                    <!-- Item 1 -->
-                    <div class="swiper-slide slide-center">
-
-                        <!-- Media -->
-                        <div class="parallax-y-bg" style="background-image:url({% static 'assets/images/Product/Banner3.png' %})"></div>
-
-                        <div class="slide-content row">
-                            <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
-                                <div class="right pb-0 text-left">
-
-                                    <!-- Content -->
-                                    <h1 class="title effect-static-text">
-                                       
-                                        ProductsYou Want !
-                                    </h1>
-                                    
-                                    <div class="row item widget-tags">
-                                        <div class="col-12 mt-3 p-0 align-self-center">
-                                            {% comment %} <div class="badges">
-                                                <span class="badge">Dark</span>
-                                                <span class="badge">Hero Section</span>
-                                                <span class="badge">Full Image</span>
-                                                <span class="badge">Aligned Right</span>
-                                            </div> {% endcomment %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-</section>
         <!-- Navbar Holder -->
         <div class="navbar-holder"></div>
 
         <!-- Section 1 -->
-<section class="section-1 m-0 p-0 odd offers" style="background-image:url({% static  'assets/images/truck100.jpg' %})">
-                  
-                <div class="row justify-content-center  items">
+        <section class="section-1 odd offers" style="background-image:url({% static  'assets/images/truck10.jpg' %})">
+            <div class="container smaller">
+                <div class="row intro">
+                    <div class="col-12 col-md-9 align-self-center text-center text-md-left">
+                        <span class="pre-title m-auto ml-md-0">Section intro title</span>
+                        <h2><span class="featured"><span>Featured</span></span> Headline</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et sapien mollis, dignissim lorem nec tempor lectus. Nulla eget magna ac nunc venenatis semper.</p>
+                        <div class="row item widget-tags">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="badges">
+                                    <span class="badge">Dark</span>
+                                    <span class="badge">Smaller Container</span>
+                                    <span class="badge">Left Aligned</span>
+                                    <span class="badge">Outline Button</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 align-self-end">
+                        <a href="#" class="btn mx-auto mr-md-0 ml-md-auto outline-button">BUTTON</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center items">
                     <div class="col-12 item">
                         <div class="card">
-                         <h2 class="text-center"><span class="featured "><span>GPS</span></span> </h2>
-                            <img src="{% static 'assets/images/fleet_banner.png' %}" alt=""><br><br>
-                             <h2 class="text-center"><span class="featured"><span>We Bestow Tracking Solution</span></span></h2>
-                             <p class="p-5 text-justify">Telematics is the utilization of telecommunications networks to transmit information to and from assets at a distance. To put it in easier to understand terms, it’s the tracking, monitoring and connectivity of vehicles.Essentially, anything that would be considered part of the Internet Things(IOT) related to vehicles could fall under telematics.</p>
-
-                       <h3 class=" pl-5 " style="color:#00A6A6">Fleet Tracking Service (GPS device)</h3>
-    <p class="pl-5 text-justify">Fleet tracking enables vehicle owners and organiza on to keep a close eye on their on-ground vehicles round the clock with the comfort of sittng back at home. On the other hands, it assists you to manage trips and opera ons of the ﬂeet more precisely.</p>
-                      
-                   </div>
-                   
-                </div>
-            </div>
-
-</section>
-
-
-
-    <section class="section-3 p-0 m-0 odd offers">
-            <div class="container">
-                <div class="row text-center intro">
-                    <div class="col-12">
-                        <h2>Get Report and Analyze</h2>
-                    </div>
-                </div>
-                <div class="row justify-content-center items">
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                           <i class="fab fa-accusoft fa-4x"></i>
-                            <h4>AC Misused</h4>
-                            <p class="text-justify">Complete report on AC usages will be provided which will include Vehicle number, driver’s name, number of times AC is used, total dura on, longest dura on, along with average dura on.</p>
-                           
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                            <i class="fas fa-map-marked-alt fa-4x"></i>
-                            <h4>Travel Detail With D-T</h4>
-                            <p class="text-justify">From Start to end every detail of the trip is at your hand coun ng start & end loca on, covered distance, running time, idling me, slowdown me, inac ve me, alerts along with travel playback facility.</p>
-                           
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                            <i class="fas fa-chart-line fa-4x"></i>
-                            <h4>Idel Detail Report</h4>
-                            <p class="text-justify">We bestow our clients with comprehensive idling report which will contain number of mes idling is happened, the total idling dura on of a vehicle along with average idling and longest idling dura on.</p>
-                          
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                            <i class="fas fa-gas-pump fa-4x"></i>
-                            <h4>FuelReport</h4>
-                            <p class="text-justify">With us, vehicle owners can easily track the fuel uses whenever they want. This report will show the tank capacity, fuel quan ty in liters during the start of the trip as well as during the end of the trip, along with distance covered by the vehicle.</p>
-                            
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                            <i class="fas fa-project-diagram fa-4x"></i>
-                            <h4>Inactive Report</h4>
-                            <p class="text-justify">Vehicle owners will get to know that how many times their vehicle is been inac ve and its dura on.</p>
-                          
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 item">
-                        <div class="card">
-                           <i class="fas fa-pencil-alt fa-4x"></i>
-                            <h4>Input Report</h4>
-                            <p class="text-justify">This report will show you the number of times igni on is switched on and oﬀ and total dura on.</p>
-                           
+                            <img src="{% static 'assets/images/truck7.jpg' %}" alt=""><br><br>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti quae suscipit odit fuga praesentium officia earum nostrum voluptatum corrupti optio, perferendis maiores, modi at repellat eligendi ratione facilis recusandae odio totam vero et provident. Voluptatem inventore facere maxime vel magnam dolores debitis necessitatibus distinctio quod saepe, quo sit, provident illum numquam laudantium dolorum quis? Perferendis, consequuntur. Dolor quibusdam nisi cupiditate quidem perferendis, quod laudantium facilis, facere enim unde dolorem, quos suscipit odio quam aperiam magnam? Repudiandae, enim harum! Expedita doloremque consequatur eveniet unde eius eaque nobis sunt debitis maxime molestiae, et nam, distinctio ab? Fuga quod alias facere distinctio hic sit magni expedita odio ducimus nemo ut molestias aliquid officia sed dicta deserunt, soluta eum assumenda omnis animi autem ea, quis dolor obcaecati. Libero possimus praesentium vitae quia veniam dolor, ducimus ut iusto quod vel doloremque. A doloribus modi animi dolorem perferendis sapiente error amet accusantium, repellat autem iure aliquam?</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-<section id="services" class="section-1 offers featured" style="background:#111117">
+
+        <!-- Section 2 -->
+        <section class="section-2 offers">
             <div class="container">
-            <div class="row items">
-                <div class="col-12 col-md-6 pr-md-4 text">
-                    <div data-aos="fade-up"  class="row intro">
-                        <div class="col-12 p-0">
-                           
-                            <h2 ><span class="featured"><span>Fuel Level  </span></span>Sensors </h2>
-                          <p style="text-align: justify;">Ergonomic bayonet-type fastening to save mounting time</p>
-                          <p style="text-align: justify;">Strengthened fixing thru the bottom spring catch</p>
-                          <p style="text-align: justify;">Sealing holes to prevent intrusion</p>
-                          <p style="text-align: justify;">All the necessary mounting items and cable in delivery set</p>
-                          <p style="text-align: justify;">Certified to comply with obligatory automatic compensation based on ambient temperature</p>
-                          <p style="text-align: justify;">Adjustable signal filtration to smooth the peaks for different conditions of the vehicles operations</p>
-                          <p style="text-align: justify;">Digital self-diagnostics to control data reliability</p>
-                            
-                           
-                            <div class="row">
-                                
+                <div class="row text-center intro">
+                    <div class="col-12">
+                        <span class="pre-title">Section intro title</span>
+                        <h2><span class="featured"><span>Featured</span></span> Headline</h2>
+                        <p class="text-max-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et sapien mollis, dignissim lorem nec tempor lectus. Nulla eget magna ac nunc venenatis semper.</p>
+                        <div class="row item widget-tags">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="badges">
+                                    <span class="badge">Light</span>
+                                    <span class="badge">Default Container</span>
+                                    <span class="badge">Center Aligned</span>
+                                    <span class="badge">Without Button</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-up" class="col-12 col-md-6 item">
-                    <div class="">
-                        <div class="col-12">
-                        <div class="col-12 p-0 input-group align-self-center">
-                                   
-                                </div>
-                             <img src="{% static 'assets/images/fleet4.png' %}" alt="Logo" class="logo"> 
-                         
-                      
+                <div class="row justify-content-center text-center items">
+                    <div class="col-12 item">
+                        <div class="card">
+                            Something here...
                         </div>
                     </div>
                 </div>
-              {% comment %} <div data-aos="fade-up" class="col-12 col-md-3 item">
-                    <div class="card">
-                <div class="col-12">
-                            <img src="{% static 'assets/images/gallery-5.jpg' %}" alt="Logo" class="logo">
-                            <h4>Transport</h4>
-                            <p>We develop operational strategies to improve logistical efficiency.</p>
-                        </div> 
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section-3 odd offers">
+            <div class="container">
+                <div class="row intro">
+                    <div class="col-12 col-md-9 align-self-center text-center text-md-left">
+                        <h2>Simple Headline</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et sapien mollis, dignissim lorem nec tempor lectus. Nulla eget magna ac nunc venenatis semper.</p>
+                        <div class="row item widget-tags">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="badges">
+                                    <span class="badge">Dark</span>
+                                    <span class="badge">Background Image</span>
+                                    <span class="badge">Default Container</span>
+                                    <span class="badge">Left Aligned</span>
+                                    <span class="badge">Primary Button</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>  {% endcomment %}
-            </div>
-            </div>
-</section>
-<section class="section-1 m-0 p-0 odd offers" style="background-image:url({% static  'assets/images/truck100.jpg' %})">
-                  
-                <div class="row justify-content-center  items">
+                    <div class="col-12 col-md-3 align-self-end">
+                        <a href="#" class="btn mx-auto mr-md-0 ml-md-auto primary-button">BUTTON</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center items">
                     <div class="col-12 item">
                         <div class="card">
-                         
-                          <h2 class="text-center"><span class="featured"><span>Hawk Eye CCTV Solution</span></span></h2>
-                           <p class="p-5  text-justify">TRANAGE, provides all type of tracking and posi oning services to our business partners so that they can get true informa on about vehicle and related issues internally as well as externally both.</p>
-
-                            <img src="{% static 'assets/images/fleet_banner.png' %}" alt=""><br><br>
-                            
-                            
-                      
-                   </div>
-                   
+                            Something here...
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-</section>
+        <!-- Section 4 -->
+        <section class="section-4 offers">
+            <div class="container full-grid">
+                <div class="row text-center intro">
+                    <div class="col-12">
+                        <h2>Simple Headline</h2>
+                        <p class="text-max-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et sapien mollis, dignissim lorem nec tempor lectus. Nulla eget magna ac nunc venenatis semper.</p>
+                        <div class="row item widget-tags">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="badges">
+                                    <span class="badge">Light</span>
+                                    <span class="badge">Full Container</span>
+                                    <span class="badge">Center Aligned</span>
+                                    <span class="badge">Without Button</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center items">
+                    <div class="col-12 item">
+                        <div class="card">
+                            Something here...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
        {% include 'footer.html' %}
