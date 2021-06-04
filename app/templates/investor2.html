@@ -5,7 +5,7 @@
 {% include 'header.html' %}
     {% include 'preloader.html' %}
 
-
+<script src="{% static 'assets/js/myval.js' %}"></script>
 <!------ Include the above in your HEAD tag ---------->
  <section class="section-3 hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
@@ -67,7 +67,7 @@
                     <div class="col-12 item">
                         <div class="card ">
                         <h2  data-aos-delay="2000" class="title effect-static-text">Investor <span class="featured"><span>Form</span></span></h2>
-                          <form action="{% url 'investor_view' %}" method="POST" class="nexgen-simple-form">
+                          <form action="{% url 'investor_view' %}" method="POST" class="nexgen-simple-form" onsubmit="return myfun();">
                               {% csrf_token %}
 
                                         <!-- Remove this field if you want to disable recaptcha -->
@@ -83,7 +83,7 @@
                                                 <input required type="text" name="occupation" class="form-control field-phone" placeholder="Occupation">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input required type="text" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No.">
+                                                <input required type="text" id="aadhar" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No.">
                                             </div>
                                                <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input required type="text" name="residential" class="form-control field-phone" placeholder="Residential Address">
@@ -92,10 +92,10 @@
                                                 <input required type="text" name="corresponding" class="form-control field-phone" placeholder="Corresponding Address">
                                             </div>
                                               <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input required type="text" name="mobile" class="form-control field-phone" placeholder="Mobile No.">
+                                                <input required type="text" id="mobile" name="mobile" class="form-control field-phone" placeholder="Mobile No.">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input required type="text" name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No.">
+                                                <input required type="text" id="mobile_alt"  name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No.">
                                             </div>
                                               
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">

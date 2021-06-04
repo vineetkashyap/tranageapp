@@ -5,32 +5,8 @@
 {% include 'header.html' %}
     {% include 'preloader.html' %}
 
-     <script> 
-   function validation_aadhar()
-       {  
-            var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
-           
-            var x=document.getElementById("aadhaar").value;
-           if(regexp.test(x))
-               {
-                 
-                    document.getElementById("aadhaar").placeholder = "Type name here..";
-                    ;
-                    return true;
-                 
-                   
-               }
-        else{ 
-           
-        
-        returnToPreviousPage()
-        document.getElementById("aadhaar").placeholder = "Type name here..";
-        return false;
-              }
-              
-        }
-
-   </script>
+     
+<script src="{% static 'assets/js/myval.js' %}"></script>
 <!------ Include the above in your HEAD tag ---------->
  <section class="section-3 hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
@@ -92,7 +68,7 @@
                     <div class="col-12 item">
                         <div class="card ">
                         <h2 data-aos="" data-aos-delay="2000" class="title effect-static-text">Distributor <span class="featured"><span>Form</span></span></h2>
-                          <form action="" method="POST" class="nexgen-simple-form ">
+                          <form action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
                                        {% csrf_token %}
                                         <!-- Remove this field if you want to disable recaptcha -->
     
@@ -107,10 +83,10 @@
                                   <input placeholder="Date Of Birth"	onfocus="(this.type='date')" onfocus="(this.type='date')" type="text" id="dateplaceholder" name="dob" class="form-control "  required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" id="aadhaar" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No." required>
+                                                <input type="text" id="aadhar" name="aadhar" class="form-control field-email" placeholder="Aadhar Card  No." required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="pancard" class="form-control field-phone" placeholder="PAN Card No." required>
+                                                <input type="text" name="pancard" id="pancard" class="form-control field-phone" placeholder="PAN Card No." required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input type="text" name="education" class="form-control field-phone" placeholder="Maximum Education" required> 
@@ -142,10 +118,10 @@
                                             </div>
                                             
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="mobile" class="form-control field-phone" placeholder="Mobile No." required>
+                                                <input type="text" id="mobile" name="mobile" class="form-control field-phone" placeholder="Mobile No." required>
                                             </div>
-                                            <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No." required>
+                                            <div id="mobile" class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
+                                                <input type="text" id="mobile_alt" name="mobile_alt" class="form-control field-phone" placeholder="Alternate Mobile No." required>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
                                                 <input type="email" name="email" class="form-control field-phone" placeholder="Email Address" required>

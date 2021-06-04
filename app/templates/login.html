@@ -35,13 +35,16 @@
                                                 <input type="password" name="password" class="form-control field-email" placeholder="Enter  Your Passowrd">
                                             </div>
                                             
-                                            <div class="col-12 col-12 m-0 pl-md-2">
-                                                <span class="form-alert"></span>
-                                            </div>
+                                           {% if d %}
+                                              <div class="col-12 item">
+                                <span class="form-alert mt-3 mb-0">Email or Password is incorrect</span>
+                                              </div>
+                                           {% endif %}
                                             <div class="col-12 input-group m-0 p-2">
                                             <input type="submit" value="Login">
                                                 {% comment %} <a class="btn primary-button">SEND</a> {% endcomment %}
                                             </div>
+                                            
                                         </div>
                                     </form>
                             </div>

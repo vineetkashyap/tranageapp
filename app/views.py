@@ -78,11 +78,6 @@ def test1(request):
     return render(request,'con.html')
 
 
-
-
-
-
-
 def user_login(request,user=None):
   if not request.user.is_authenticated:
     if request.method == "POST":
@@ -93,7 +88,10 @@ def user_login(request,user=None):
           login(request,user)
           messages.success(request, 'Logged in successfully !!')
           return HttpResponseRedirect('/dashboard/')
+        else:
+             return render(request, 'login.html',{'d':'yes'})
     else: 
+
       return render(request, 'login.html')
   else:
     return HttpResponseRedirect('/dashboard/')
