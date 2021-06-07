@@ -1,0 +1,56 @@
+{% load static %}
+<script src="{% static 'assets/js/myval.js' %}"></script>
+<script>
+
+$("#btnsave").click(function(){
+   
+
+    let name = $("#name").val();
+    let fathername = $("#fathername").val();
+    let dateplaceholder= $("#dateplaceholder").val();
+    let aadhar = $("#aadhar").val();
+    let pancard = $("#pancard").val();
+    let education = $("#education").val();
+    let occupation = $("#occupation").val();
+    let residential = $("#residential").val();
+    let house = $("#house").val();
+    let street = $("#street").val();
+    let block = $("#block").val();
+    let distric = $("#distric").val();
+    let state = $("#state").val();
+    let mobile = $("#mobile").val();
+    let mobile_alt = $("#mobile_alt").val();
+    let email = $("#email").val();
+    let message = $("#message").val();
+     
+     mydata = {name:name,fathername:fathername,dateplaceholder:dateplaceholder,aadhar:aadhar,pancard:pancard,education:education,occupation:occupation,residential:residential,house:house,street:street,block:block,distric:distric,state:state,mobile:mobile,mobile_alt:mobile_alt,email:email,message:message};
+     console.log(mydata);
+
+     if(myfun2()==true)
+     {
+        $.ajax({
+         url: "{% url 'distributor' %}",
+         method: "POST",
+         data: mydata,
+         success: function(data){
+             
+             
+            
+            if(data.status == 'no'){
+                notie.alert({ type: 'warning',position: 'bottom',text: data.distric+" is not available"})
+            }
+            else{
+                notie.alert({ type: 'success', text: data.name +' Your Form Submitted Successfully !',position: 'bottom', time: 5 }) 
+                
+
+            }
+         }
+     })
+     }
+     
+     
+
+     
+      
+})
+</script>

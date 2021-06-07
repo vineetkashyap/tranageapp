@@ -1,26 +1,17 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-        <!-- Header -->
-{% include 'header.html' %}
-    {% include 'preloader.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>We have an email</h1>
 
-
-<!------ Include the above in your HEAD tag ---------->
-
- <section class="section-3 odd offers" style="background:black">
-            <div class="container bg-dark" style="background:black">
-                <div class="row justify-content-center items" style="background:black">
-                    <div class="col-12 col-md-6 col-lg-4 item" style="background:black">
-                        <div class="card">
-                          
-                            <h4>Thank You</h4>
-                            <p>We will contact you as soon as possible</p>
-                            <a href="{% url 'index' %}"><i class="btn-icon pulse fas fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-{% endblock content %}
+Name :{{name}}
+Email : {{email}}
+Mobile Number : {{mobile}}
+Message : {{message}}
+</body>
+</html>

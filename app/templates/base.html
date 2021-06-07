@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{% static 'assets/css/vendor/animation.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/vendor/gallery.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/vendor/cookie-notice.min.css' %}">
-
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
         <!-- ==============================================
         Custom Stylesheet
         =============================================== -->
@@ -53,6 +53,7 @@
         </style>
 </head>
 <body>
+
     {% block content %}
      
     {% endblock content %}
@@ -84,6 +85,19 @@
         <script src="{% static 'assets/js/vendor/cookie-notice.min.js' %}"></script>
         <script src="{% static 'assets/js/vendor/particles.min.js' %}"></script>
         <script src="{% static 'assets/js/main.js' %}"></script>
-
+         <script src="https://unpkg.com/notie"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60bb9fbf4ae6dd0abe7ca5b6/1f7eeg26k';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

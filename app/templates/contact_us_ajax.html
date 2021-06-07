@@ -1,0 +1,40 @@
+
+{% load static %}
+
+<script src="{% static 'assets/js/myval.js' %}"></script>
+
+
+<script>
+
+    $('#btnsave').click(function(){
+        let name  = document.getElementById("name");
+        let email = document.getElementById("email");
+        let mobile = document.getElementById("mobile");
+        let message =document.getElementById("message");
+  
+        mydata={name:name,email:email,mobile:mobile,message:message};
+        
+       alert("yesdssssssssssssssssssssssssssssss")
+   
+        if(fun()==true)
+        {
+           
+        $.ajax({
+         url: "{% url 'sendmail' %}",
+         method: "POST",
+         data: mydata,
+         success: function(data){
+             
+             notie.alert({ type: 'success',  text: ' Your Form Has Been Submitted Successfullly !',position: 'bottom', time: 5 }) // Hides after 2 seconds
+         }
+     })
+     
+        }
+        else{
+            alert("nooooooooooooooooooooooooooooooo")
+        }
+   
+    })
+
+</script>
+

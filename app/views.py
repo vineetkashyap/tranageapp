@@ -6,6 +6,11 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, logout,login
 from app.models import Distributor_Model,Investor_Model
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import EmailMessage,send_mass_mail
+from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 def index (request):
@@ -30,8 +35,6 @@ def partner(request):
 def  blog(request):
     return render(request,'blog.html')
 
-# def  login(request):
-#     return render(request,'login.html')
 
 def registration(request):
     return render(request,'registrationform.html')
@@ -39,12 +42,12 @@ def registration(request):
 
 def product(request):
     return render(request,'productpage.html')
-
+@csrf_exempt
 def distributor(request):
      if request.method == "POST":
         full_name = request.POST.get('name')
         father_name = request.POST.get('fathername')
-        date_of_birth = request.POST.get('dob')
+        date_of_birth = request.POST.get('dateplaceholder')
         aadhar_no= request.POST.get('aadhar')
         pan_no= request.POST.get('pancard')
         education= request.POST.get('education')
@@ -64,11 +67,30 @@ def distributor(request):
         except Distributor_Model.DoesNotExist:
             data = None
         if data is not None :
-            messages.success(request, 'Region Not Available')
+            return JsonResponse({'status':"no",'distric':distric})
         else:
             all_data = Distributor_Model(full_name=full_name,father_name=father_name,date_of_birth=date_of_birth,aadhar_no=aadhar_no,pan_no=pan_no,education=education,occupation=occupation,residential_address=residential_address,house_no=house_no,street=street,block=block,distric=distric,state=state,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,message=message)
             all_data.save()
-            return render(request,'distributor_success.html')
+
+            template = render_to_string('email_dist.html',{'name':full_name,'last_name':father_name,'dob':date_of_birth,'aadhar_no':aadhar_no,'pan_no':pan_no,'education':education,'occupation':occupation,'residential':residential_address,'house_no':house_no,'street':street,'block':block,'distric':distric,'state':state,'mobile':mobile_no,'alt_mobile':alternate_mobile_no,'email':email,'message':message})
+            email = EmailMessage(
+            'We got distributor',
+            template,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+        )
+            email.fail_silently=False
+            email.send()
+            template_user = render_to_string('email_user.html')
+            email = EmailMessage(
+            'Thanks',
+            template_user,
+            settings.EMAIL_HOST_USER,
+            [request.POST.get('email')],
+        )
+            email.fail_silently=False
+            email.send()
+            return JsonResponse({'status':'yes','name':full_name})
      return render(request,'con.html')
 
 def investor(request):
@@ -105,6 +127,7 @@ def user_logout(request):
 
 ####################      distributor Form View Function         ###################################
 
+@csrf_exempt
 def investor_view(request):
     if request.method == "POST":
         full_name = request.POST.get('name')
@@ -119,29 +142,63 @@ def investor_view(request):
         invest= request.POST.get('invest')
         all_data = Investor_Model(full_name=full_name,company=company,occupation=occupation,aadhar_no=aadhar_no,residential_address=residential_address,corresponding_address=corresponding_address,mobile_no=mobile_no,alternate_mobile_no=alternate_mobile_no,email=email,invest_capacity=invest)
         all_data.save()
-        return render(request,'investor_success.html')
+        ###############email################################
+        template = render_to_string('email_investor.html',{'name':full_name,'company':company,'occupation':occupation,'aadhar_no':aadhar_no,'residential_address':residential_address,'corresponding_address':corresponding_address,'mobile_no':mobile_no,'alternate_mobile_no':alternate_mobile_no,'email':email,'invest':invest})
+        template_user = render_to_string('email_user.html')
+        email1 = (
+            'We got a new mail',
+            template,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+        )
+        
+        email2 = (
+            'Thanks',
+            template_user,
+            settings.EMAIL_HOST_USER,
+            [request.POST.get('email')],
+            
+        )
+        
+        send_mass_mail((email1,email2),fail_silently=False)
+        return JsonResponse({"status":"save",'name':full_name})
+    else:
+        return JsonResponse({"status":"fail"})
+
 
 
 ####################      End distributor Form View Function         ###################################
 
-
-
 ####################      Send Mail; View Function         ###################################
-from django.core.mail import EmailMessage
-from django.conf import settings
-from django.template.loader import render_to_string
+@csrf_exempt
 def sendmail(request):
-    name = request.POST['name']
-    email_id = request.POST['email']
-    mobile = request.POST['mobile']
-    message_content  =request.POST['message']
-    template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
-    email = EmailMessage(
-        'Hello Priye Grahak',
-        template,
-        settings.EMAIL_HOST_USER,
-        [settings.EMAIL_HOST_USER],
-    )
-    email.fail_silently=False
-    email.send()
-    return render(request,'email_success.html')
+    if request.method == "POST":
+        name = request.POST['name']
+        email_id = request.POST['email']
+        mobile = request.POST['mobile']
+        message_content  =request.POST['message']
+        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
+        email = EmailMessage(
+            'We got a new mail',
+            template,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+        )
+        email.fail_silently=False
+        email.send()
+        ################ mail 2  ######################
+        email = EmailMessage(
+            'Thanks for contacting us!',
+            "We will contact you soon",
+            settings.EMAIL_HOST_USER,
+            [request.POST['email']],
+            
+        )
+        email.fail_silently=False
+        email.send()
+        return JsonResponse({'status':'sent'})
+    else:
+         return JsonResponse({'status':'not sent'})
+
+
+    

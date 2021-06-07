@@ -1,0 +1,38 @@
+{% load static %}
+<script src="{% static 'assets/js/myval.js' %}"></script>
+<script>
+
+$("#btnsave").click(function(){
+   
+
+    let name1 = $("#name").val();
+    let company1 = $("#company").val();
+    let occupation1= $("#occupation").val();
+    let aadhar1 = $("#aadhar").val();
+    let residential1 = $("#residential").val();
+    let corresponding1 = $("#corresponding").val();
+    let mobile1 = $("#mobile").val();
+    let mobile_alt1 = $("#mobile_alt").val();
+    let email1 = $("#email").val();
+    let invest1 = $("#invest").val();
+     
+     mydata = {name:name1,company:company1,occupation:occupation1,aadhar:aadhar1,residential:residential1,corresponding:corresponding1,mobile:mobile1,mobile_alt:mobile_alt1,email:email1,invest:invest1};
+     
+     if(myfun()==true)
+     {
+        $.ajax({
+         url: "{% url 'investor_view' %}",
+         method: "POST",
+         data: mydata,
+         success: function(data){
+             
+             notie.alert({ type: 'success',  text: data.name + ' Your Form Has Been Submitted Successfullly !',position: 'bottom', time: 5 }) // Hides after 2 seconds
+         }
+     })
+     }
+   
+
+     
+      
+})
+</script>
