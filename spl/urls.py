@@ -45,6 +45,7 @@ urlpatterns = [
     path('agent_detail/<int:id>',dash.agent_detail,name="agent_detail"),
     path('add_employee/',dash.add_employee,name="add_employee"),
     path('sendmail/',views.sendmail,name="sendmail"),
+    path('getcardata/',views.getcardata,name="getcardata"),
 
 
 

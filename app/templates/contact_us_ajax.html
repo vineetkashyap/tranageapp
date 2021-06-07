@@ -1,40 +1,32 @@
-
 {% load static %}
-
 <script src="{% static 'assets/js/myval.js' %}"></script>
+
 
 
 <script>
 
-    $('#btnsave').click(function(){
-        let name  = document.getElementById("name");
-        let email = document.getElementById("email");
-        let mobile = document.getElementById("mobile");
-        let message =document.getElementById("message");
-  
-        mydata={name:name,email:email,mobile:mobile,message:message};
-        
-       alert("yesdssssssssssssssssssssssssssssss")
-   
-        if(fun()==true)
-        {
-           
+
+    $("#btnsave").click(function(){
+        var name1 = $("#name").val();
+        var email1 = $("#email").val();
+        var mobile1 = $("#mobile").val();  
+        var message1 = $("#message").val();
+        console.log(name1)
+        console.log(email1)
+        console.log(mobile1)
+        console.log(message1)
+
+        mydata = {name:name1,email:email1,mobile:mobile1,message:message1};
+        console.log(mydata)
+
         $.ajax({
          url: "{% url 'sendmail' %}",
          method: "POST",
          data: mydata,
          success: function(data){
              
-             notie.alert({ type: 'success',  text: ' Your Form Has Been Submitted Successfullly !',position: 'bottom', time: 5 }) // Hides after 2 seconds
+             notie.alert({ type: 'success',  text: name1 + ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
          }
-     })
-     
-        }
-        else{
-            alert("nooooooooooooooooooooooooooooooo")
-        }
-   
+        })
     })
-
 </script>
-

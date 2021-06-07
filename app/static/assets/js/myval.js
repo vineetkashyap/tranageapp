@@ -392,7 +392,7 @@ function myfun2(){
 
 
 
-function fun(){
+function funval(){
     var email = document.getElementById("email").value;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -407,6 +407,9 @@ function fun(){
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' })
         document.getElementById("email").focus();
          return false;
+    }
+    else{
+        return true;
     }
 
     

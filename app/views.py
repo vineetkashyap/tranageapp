@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, logout,login
 from app.models import Distributor_Model,Investor_Model
-from django.http import JsonResponse
+from django.http import JsonResponse, request
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage,send_mass_mail
 from django.conf import settings
@@ -63,7 +63,7 @@ def distributor(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         try :
-            data = Distributor_Model.objects.get(distric=distric)
+            data = Distributor_Model.objects.get(distric=distric,status=True)
         except Distributor_Model.DoesNotExist:
             data = None
         if data is not None :
@@ -73,31 +73,30 @@ def distributor(request):
             all_data.save()
 
             template = render_to_string('email_dist.html',{'name':full_name,'last_name':father_name,'dob':date_of_birth,'aadhar_no':aadhar_no,'pan_no':pan_no,'education':education,'occupation':occupation,'residential':residential_address,'house_no':house_no,'street':street,'block':block,'distric':distric,'state':state,'mobile':mobile_no,'alt_mobile':alternate_mobile_no,'email':email,'message':message})
-            email = EmailMessage(
+            template_user = render_to_string('email_user.html')
+            email1 = (
             'We got distributor',
             template,
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER],
         )
-            email.fail_silently=False
-            email.send()
-            template_user = render_to_string('email_user.html')
-            email = EmailMessage(
+            
+            
+            email2 = (
             'Thanks',
             template_user,
             settings.EMAIL_HOST_USER,
             [request.POST.get('email')],
         )
-            email.fail_silently=False
-            email.send()
+            send_mass_mail((email1,email2),fail_silently=False)
             return JsonResponse({'status':'yes','name':full_name})
-     return render(request,'con.html')
+     return render(request,'distibutor_page.html')
 
 def investor(request):
     return render(request,'investor2.html')
 
 def test1(request):
-    return render(request,'con.html')
+    return render(request,'distibutor_page.html')
 
 
 def user_login(request,user=None):
@@ -178,27 +177,36 @@ def sendmail(request):
         mobile = request.POST['mobile']
         message_content  =request.POST['message']
         template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
-        email = EmailMessage(
-            'We got a new mail',
+        email1 = (
+            'We got a quary',
             template,
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER],
         )
-        email.fail_silently=False
-        email.send()
+       
         ################ mail 2  ######################
-        email = EmailMessage(
+        email2 =(
             'Thanks for contacting us!',
             "We will contact you soon",
             settings.EMAIL_HOST_USER,
             [request.POST['email']],
             
         )
-        email.fail_silently=False
-        email.send()
+        
+        send_mass_mail((email1,email2),fail_silently=False)
         return JsonResponse({'status':'sent'})
     else:
          return JsonResponse({'status':'not sent'})
 
 
     
+import json
+def getcardata(request):
+    if request.method == "GET":
+        data = request.GET['id']
+        y = json.loads(data)
+        card = Add_update.objects.filter(id=y)
+        card=list(card)
+        
+        print("====================================================>",card)
+        return JsonResponse({'dt':card})

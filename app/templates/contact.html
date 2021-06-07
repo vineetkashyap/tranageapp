@@ -4,6 +4,7 @@
         <!-- Header -->
 {% include 'header.html' %}
     {% include 'preloader.html' %}
+    <script src="{% static 'assets/js/myval.js' %}"></script>
         <!-- Hero -->
         <section id="slider" class="hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto alt">
@@ -23,7 +24,7 @@
                                     <h1 class="title effect-static-text" style="font-size:2.5rem">Get in Touch</h1>
                                     
                                     <!-- Action -->
-                                    <form action="{% url 'sendmail' %}" method="POST"  class="nexgen-simple-form">
+                                    <form action="{% url 'sendmail' %}" method="POST"  class="nexgen-simple-form" onsubmit="return funval();">
                                        {% csrf_token %}
     
                                         <div class="row form-group-margin">
@@ -224,8 +225,10 @@
         =============================================== -->
  
         <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
       {% include 'contact_us_ajax.html' %}
 
         {% endblock content %}

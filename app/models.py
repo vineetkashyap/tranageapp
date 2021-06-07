@@ -19,6 +19,7 @@ class Distributor_Model(models.Model):
     alternate_mobile_no = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     message = models.TextField(max_length=1500)
+    status = models.BooleanField(default=False)
 
 
 
@@ -33,6 +34,7 @@ class Investor_Model(models.Model):
     alternate_mobile_no = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     invest_capacity = models.CharField(max_length=500)
+   
 
 
 
