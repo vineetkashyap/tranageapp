@@ -1,1 +1,1 @@
-web: gunicorn spl.wsgi
+web: waitress-serve --port=$PORT spl.wsgi:application
