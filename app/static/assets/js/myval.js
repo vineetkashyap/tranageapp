@@ -150,7 +150,10 @@ function myfun(){
         return false;
     }
     
-   
+   else
+   {
+       return true;
+   }
    
    
    
@@ -292,7 +295,7 @@ function myfun2(){
     }
 
     if(residential==""){
-        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter choose your residential address!' })
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter  your residential address!' })
         document.getElementById("residential").focus();
          return false;
     }
@@ -374,28 +377,57 @@ function myfun2(){
         return false;
     }
    
+   else{
+       return true;
+   }
+   
+   var c = 0;
+   var invertedArray = aadharno.split('').map(Number).reverse();
+    var len = invertedArray.length;
+    for (var i = 0; i < len; i++) 
+   {
+           c = d[c][p[(i % 8)][invertedArray[i]]];
+   }
    
    
-   
-      var c = 0;
-      var invertedArray = aadharno.split('').map(Number).reverse();
-       var len = invertedArray.length;
-       for (var i = 0; i < len; i++) 
-      {
-              c = d[c][p[(i % 8)][invertedArray[i]]];
-      }
-      
-      
-     
-      return (c === 0);
+  
+   return (c === 0);
 }
 
 
 
+
 function funval(){
+    var name = document.getElementById("name").value;
+    var mobile = document.getElementById("mobile").value;
+    var message = document.getElementById("message").value;
     var email = document.getElementById("email").value;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    if(name==""){
+
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter name!' })
+        document.getElementById("name").focus();
+        return false;
+    }
+    if (isNaN(mobile)){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    if(mobile.length<10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be less than 10 digits' })
+          document.getElementById("mobile").focus();
+         return false;
+    }
+    if(mobile.length>10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be more than 10 digits' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
 
     if(email==""){
 
@@ -407,6 +439,12 @@ function funval(){
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' })
         document.getElementById("email").focus();
          return false;
+    }
+    if(message==""){
+
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your message!' })
+        document.getElementById("message").focus();
+        return false;
     }
     else{
         return true;

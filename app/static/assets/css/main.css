@@ -727,7 +727,7 @@ section.featured:after {
     left: calc(50% - 70px);
     width: 150px;
     height: 60px;
-    background-image: url(/assets/textures/bullets.png);
+    background-image: url();
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.25;

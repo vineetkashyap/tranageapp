@@ -22,12 +22,13 @@ $("#btnsave").click(function(){
     let mobile_alt = $("#mobile_alt").val();
     let email = $("#email").val();
     let message = $("#message").val();
-     
+     console.log("yes1")
      mydata = {name:name,fathername:fathername,dateplaceholder:dateplaceholder,aadhar:aadhar,pancard:pancard,education:education,occupation:occupation,residential:residential,house:house,street:street,block:block,distric:distric,state:state,mobile:mobile,mobile_alt:mobile_alt,email:email,message:message};
      console.log(mydata);
 
      if(myfun2()==true)
-     {
+     { 
+          console.log("yes2")
         $.ajax({
          url: "{% url 'distributor' %}",
          method: "POST",
@@ -46,6 +47,10 @@ $("#btnsave").click(function(){
             }
          }
      })
+     }
+
+     else{
+         console.log("vineet kashyappppppp")
      }
      
      

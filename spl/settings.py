@@ -24,7 +24,7 @@ SECRET_KEY = 'fe-8)_z^km%mhsghdm2mfyzm(^s#$$f2r1dr1=_ic!!w0p9s(i'
 # SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nonstatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,7 +121,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -131,8 +132,9 @@ MEDIA_URL ='/media/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # DEBUG_PROPAGATE_EXCEPTIONS = True
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorag'

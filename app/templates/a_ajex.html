@@ -25,6 +25,7 @@ $("#btnsave").click(function(){
          method: "POST",
          data: mydata,
          success: function(data){
+          
              
              notie.alert({ type: 'success',  text: data.name + ' Your Form Has Been Submitted Successfullly !',position: 'bottom', time: 5 }) // Hides after 2 seconds
          }

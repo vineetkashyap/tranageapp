@@ -1,0 +1,29 @@
+{% load static %}
+
+<script>
+
+    $("#savebtn").click(function(){
+
+        var name= $("#name").val();
+        var email= $("#email").val();
+        var mobile= $("#mobile").val();
+        var message= $("#message").val();
+        var project= $("#project").val();
+      
+        mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
+        console.log(mydata)
+          $.ajax({
+         url: "{% url 'enquiry' %}",
+         method: "POST",
+         data: mydata,
+         success: function(data){
+             
+             notie.alert({ type: 'success',  text:  ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
+         }
+         
+        })
+    
+       
+    })
+
+</script>

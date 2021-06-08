@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, logout,login
 from app.models import Distributor_Model,Investor_Model
 from django.http import JsonResponse, request
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import EmailMessage,send_mass_mail
+from django.core.mail import EmailMessage,send_mass_mail,EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
 
@@ -80,14 +80,14 @@ def distributor(request):
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER],
         )
-            
-            
+           
             email2 = (
-            'Thanks',
-            template_user,
+            'Thanks user',
+            "distributor page ",
             settings.EMAIL_HOST_USER,
             [request.POST.get('email')],
         )
+          
             send_mass_mail((email1,email2),fail_silently=False)
             return JsonResponse({'status':'yes','name':full_name})
      return render(request,'distibutor_page.html')
@@ -98,7 +98,7 @@ def investor(request):
 def test1(request):
     return render(request,'distibutor_page.html')
 
-
+@csrf_exempt
 def user_login(request,user=None):
   if not request.user.is_authenticated:
     if request.method == "POST":
@@ -108,9 +108,9 @@ def user_login(request,user=None):
         if user is not None:
           login(request,user)
           messages.success(request, 'Logged in successfully !!')
-          return HttpResponseRedirect('/dashboard/')
+          return JsonResponse({'d':'yes'})
         else:
-             return render(request, 'login.html',{'d':'yes'})
+             return JsonResponse({'d':'no'})
     else: 
 
       return render(request, 'login.html')
@@ -159,6 +159,7 @@ def investor_view(request):
             
         )
         
+        
         send_mass_mail((email1,email2),fail_silently=False)
         return JsonResponse({"status":"save",'name':full_name})
     else:
@@ -169,34 +170,6 @@ def investor_view(request):
 ####################      End distributor Form View Function         ###################################
 
 ####################      Send Mail; View Function         ###################################
-@csrf_exempt
-def sendmail(request):
-    if request.method == "POST":
-        name = request.POST['name']
-        email_id = request.POST['email']
-        mobile = request.POST['mobile']
-        message_content  =request.POST['message']
-        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
-        email1 = (
-            'We got a quary',
-            template,
-            settings.EMAIL_HOST_USER,
-            [settings.EMAIL_HOST_USER],
-        )
-       
-        ################ mail 2  ######################
-        email2 =(
-            'Thanks for contacting us!',
-            "We will contact you soon",
-            settings.EMAIL_HOST_USER,
-            [request.POST['email']],
-            
-        )
-        
-        send_mass_mail((email1,email2),fail_silently=False)
-        return JsonResponse({'status':'sent'})
-    else:
-         return JsonResponse({'status':'not sent'})
 
 
     
@@ -210,3 +183,80 @@ def getcardata(request):
         
         print("====================================================>",card)
         return JsonResponse({'dt':card})
+
+
+
+@csrf_exempt
+def sendmail(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email_id = request.POST['email']
+        mobile = request.POST['mobile']
+        message_content  =request.POST['message']
+        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
+        email =EmailMessage (
+            'We got a quary',
+            template,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+        )
+        email.fail_silently=False
+        email.send()
+        ########### mail 2  ######################
+        email =EmailMessage(
+            'Thanks for contacting us!',
+            "We will contact you soon",
+            settings.EMAIL_HOST_USER,
+            [request.POST['email']],
+            
+        )
+        email.content_subtype='html'
+        file=open("requirements.txt","r")
+        email.attach("requirements.txt",file.read(),'text/plain')
+        email.fail_silently=False
+        email.send()
+        return JsonResponse({'status':'sent'})
+    else:
+         return JsonResponse({'status':'not sent'})
+
+#################PROJECT Enquary#####################
+@csrf_exempt
+def  enquiry(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email_id = request.POST['email']
+        mobile = request.POST['mobile']
+        message_content  =request.POST['message']
+        project  =request.POST['project']
+        print("==============================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content,'project':project})
+        email =EmailMessage (
+            'We got a quary',
+            template,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+        )
+        email.fail_silently=False
+        email.send()
+        ########### mail 2  ######################
+        email =EmailMessage(
+            'Thanks for contacting us!',
+            "Wie will give you project details soon !",
+            settings.EMAIL_HOST_USER,
+            [request.POST['email']],
+            
+        )
+        email.content_subtype='html'
+        file=open("requirements.txt","r")
+        email.attach("requirements.txt",file.read(),'text/plain')
+        email.fail_silently=False
+        email.send()
+        return JsonResponse({'status':'sent'})
+    else:
+         return JsonResponse({'status':'not sent'})
+
+
+
+
+def error404(request,exception):
+    return render(request,'page-404-1.html')

@@ -18,7 +18,8 @@
 
         mydata = {name:name1,email:email1,mobile:mobile1,message:message1};
         console.log(mydata)
-
+if(funval()==true){
+    
         $.ajax({
          url: "{% url 'sendmail' %}",
          method: "POST",
@@ -27,6 +28,8 @@
              
              notie.alert({ type: 'success',  text: name1 + ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
          }
+         
         })
+}
     })
 </script>

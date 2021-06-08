@@ -82,7 +82,10 @@
                     <div class="row">
                        
                         <div class="col-12 col-md-6 p-3 mx-auto text-center text-lg-center">
-                            <p>Copyright © 2021 Tranage is Proudly Powered by SCG.</p>
+                        {% now "Y" as current_year %}
+                       
+                            <p>Copyright © {{current_year}} Tranage is Proudly Powered by SCG.</p>
+                          
                         </div>
                     </div>
                 </div>

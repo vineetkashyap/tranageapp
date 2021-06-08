@@ -6,6 +6,7 @@ from app import views
 from dashboard import views as dash
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,8 +47,10 @@ urlpatterns = [
     path('add_employee/',dash.add_employee,name="add_employee"),
     path('sendmail/',views.sendmail,name="sendmail"),
     path('getcardata/',views.getcardata,name="getcardata"),
-
+    path('enquiry/',views.enquiry,name="enquiry"),
 
 
     path('con/',views.test1,name='con')
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+
+handler404 = 'app.views.error404'

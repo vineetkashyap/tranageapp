@@ -5,6 +5,32 @@
 {% include 'header.html' %}
     {% include 'preloader.html' %}
         <!-- Hero -->
+
+
+        <script>
+       function fun(){
+
+           var name = document.getElementById("username").value;
+           var pass = document.getElementById("password").value;
+           mydata = {username:name,password:pass}
+         $.ajax({
+         url: "{% url 'user_login' %}",
+         method: "POST",
+         data: mydata,
+         success: function(data){
+          
+             
+           if(data.d=="yes"){
+                window.location.href="{% url 'dashboard' %}"
+           }
+           else{
+              notie.alert({ type: 'warning', text: 'Invalid email or passwprd!' ,position:"bottom"})
+
+           }
+         }
+       })
+       }    
+        </script>
         <section id="slider" class="hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto alt">
 
@@ -29,10 +55,10 @@
     
                                         <div class="row form-group-margin">
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="text" name="username" class="form-control field-name" placeholder="Enter Email">
+                                                <input type="text" id="username" name="username" class="form-control field-name" placeholder="Enter Email">
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-3 m-0 p-2 input-group">
-                                                <input type="password" name="password" class="form-control field-email" placeholder="Enter  Your Passowrd">
+                                                <input type="password" id="password"  name="password" class="form-control field-email" placeholder="Enter  Your Passowrd">
                                             </div>
                                             
                                            {% if d %}
@@ -41,8 +67,8 @@
                                               </div>
                                            {% endif %}
                                             <div class="col-12 input-group m-0 p-2">
-                                            <input type="submit" value="Login">
-                                                {% comment %} <a class="btn primary-button">SEND</a> {% endcomment %}
+                                         
+                                               <a  id="btnsave" class="btn primary-button" onclick="fun();">SEND</a> 
                                             </div>
                                             
                                         </div>
@@ -52,6 +78,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
 
         <!-- About -->
@@ -224,6 +251,11 @@
         Google reCAPTCHA // Put your site key here
         =============================================== -->
         <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
+
+
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
 {% endblock content %}
 
 
@@ -238,21 +270,3 @@
 
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="post">
-    {% csrf_token %}
-    <input type="text" name="username">
-    <input type="text" name="password">
-      
-    </form>
-</body>
-</html>
