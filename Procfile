@@ -1,1 +1,1 @@
-web: gunicorn spl.wsgi:application
+web: gunicorn spl.wsgi
