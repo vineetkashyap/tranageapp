@@ -6,6 +6,7 @@
     {% include 'preloader.html' %}
 
 {% include 'a_val.html' %}
+<script src="{% static 'assets/js/myval.js' %}"></script>
 <!------ Include the above in your HEAD tag ---------->
  <section class="section-3 hero p-0 odd">
             <div class="swiper-container no-slider animation slider-h-100 slider-h-auto">
@@ -61,13 +62,212 @@
                        
                     </div>
                 </div>
-           
+ <!-- START ####################################JAVASCRIPT######################################## OTP -->
+<script>
+    var otp_from_back="";
+
+    function email_validation(){
+    var email = document.getElementById("email_field").value;
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    console.log(email)
+    if(email==""){
+
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your email address!' , time: 3})
+        document.getElementById("email").focus();
+         return false;
+    }
+
+    if(!(re.test(email))){
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' , time: 3})
+        document.getElementById("email").focus();
+         return false;
+    }
+    else{
+        return true;
+    }
+
+}
+    function ajax_send_otp(){
+    
+    email = document.getElementById("email_field");
+    if(email_validation()==true){
+        $.post("/send_email_otp",
+        {
+            "email":email.value,
+            "csrfmiddlewaretoken":"{{csrf_token}}"
+        },
+        function(data, status){
+            if(status=="success"){
+                otp_from_back = data.o;
+                document.getElementById("email_field").readOnly=true;
+                document.getElementById("send_email_otp").style.display='none';
+                document.getElementById("email_otp").style.display='block';
+                document.getElementById("email_verify_otp").style.display='block';
+                document.getElementById("resend_email_otp").style.display='block';
+                notie.alert({ type: 'success', text: ' OTP has been sent Successfully !',position: 'bottom', time: 5 }) 
+                
+                }
+    }
+    );
+    }
+    else{
+        
+    }
+    }
+function verify_otp(){
+    var user_otp=document.getElementById("email_otp").value;
+    console.log(user_otp)
+    if (user_otp==otp_from_back){
+        document.getElementById("email_field").style.display="none";
+        document.getElementById("email_otp").style.display="none";
+        document.getElementById("email_verify_otp").style.display="none";
+        document.getElementById("resend_email_otp").style.display="none";
+
+        document.getElementById("mobile_field").style.display="block";
+        document.getElementById("send_mobile_otp").style.display="block";
+        document.getElementById("email").value=email.value;
+        document.getElementById("email").readOnly = true; 
+    }
+    else{
+        
+    }
+} 
+</script>
+<!-- END ####################################JAVASCRIPT######################################## OTP -->
+             <!-- START OTP -->
              
-                <div class="row justify-content-center text-center items">
+             <div id="myform1" class="row justify-content-center text-center items">
+                <div class="col-6 item">
+                    <div class="card ">
+                    <h2 data-aos="" data-aos-delay="2000" class="title effect-static-text">Distributor <span class="featured"><span>Form</span></span></h2>
+                      <form action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
+                                   {% csrf_token %}
+                                    <!-- Remove this field if you want to disable recaptcha -->
+
+                                    <div class="row form-group-margin">
+                                        <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
+                                            <input type="email" id="email_field"  class="form-control field-name" placeholder="Enter Your Email" required>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
+                                            <input type="text" id="mobile_field" style="color:white;display: none;"  name="mobile" class="form-control field-name" placeholder="Enter Your Mobile" required>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
+                                            <input type="text" style="color:white;display: none;" id="email_otp" name="email_otp" class="form-control field-name" placeholder="Enter Email OTP" required>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
+                                            <input type="text" style="color:white;display: none;"  id="mobile_otp" name="mobile_otp" class="form-control field-name" placeholder="Enter Mobilnone OTP" required>
+                                        </div>
+                                        
+                                       
+                                     
+                                     <div class="col-12 col-md-12 col-lg-6 m-0 p-2 input-group">
+                                        
+                                            <input type="button" style="color:white;"                id="send_email_otp"  onclick="ajax_send_otp();" class="btn primary-button" value="Send Email OTP" placeholder="Submit">
+                                            <input type="button" style="color:white;display: none; " id="send_mobile_otp" onclick="ajax_send_otp_mobile();"  class="btn primary-button" value="Send Mobile OTP" placeholder="Submit">
+                                            <input type="button" style="color:white;display: none; " id="email_verify_otp" onclick="verify_otp();" class="btn primary-button" value="Verify Email OTP" placeholder="Submit">
+                                            <input type="button" style="color:white;display: none; " id="mobile_verify_otp" onclick="verify_otp_mobile();" class="btn primary-button" value="Verify Mobile OTP" placeholder="Submit">
+                                             
+                                              
+                                        </div>  <div class="col-12 col-md-12 col-lg-6 m-0 p-2 input-group">
+                                        
+                                            <input type="button" style="color:white;display: none; " id="resend_email_otp"  class="btn primary-button" value="Resend Email OTP" placeholder="Submit">
+                                            <input type="button" style="color:white;display: none; " id="resend_mobile_otp"  class="btn primary-button" value="Resend Moble OTP" placeholder="Submit">
+                                             
+                                              
+                                        </div>
+                                       
+
+                                    </div>
+                                </form> 
+                                           
+                    </div>
+                </div>
+            </div>
+             <!-- END OTP -->
+
+
+<!-- ######################################### START MOBILE OTP ###############################-->
+<script>
+    var otp_from_back_mobile="";
+    function mobile_validation(){
+    var a = document.getElementById("mobile_field").value;
+    if (isNaN(a)){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    if(a.length<10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be less than 10 digits' })
+          document.getElementById("mobile").focus();
+         return false;
+    }
+    if(a.length>10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be more than 10 digits' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    else{
+        return true;
+    }
+}
+
+    function ajax_send_otp_mobile(){
+    
+    mobile = document.getElementById("mobile_field");
+    if(mobile_validation()==true){
+        $.post("/send_mobile_otp",
+        {
+            "mobile":mobile.value,
+            "csrfmiddlewaretoken":"{{csrf_token}}"
+        },
+        function(data, status){
+            if(status=="success"){
+                otp_from_back_mobile = data.o;
+                document.getElementById("email_field").readOnly = true; 
+                document.getElementById("mobile_otp").style.display='block';
+                document.getElementById("mobile_verify_otp").style.display='block';
+                document.getElementById("resend_mobile_otp").style.display='block';
+                document.getElementById("send_mobile_otp").style.display='none';
+                notie.alert({ type: 'success', text: ' OTP has been sent Successfully !',position: 'bottom', time: 5 }) 
+                
+                }
+    }
+    );
+    }
+    else{
+        
+    }
+    }
+function verify_otp_mobile(){
+    var user_otp_mobile=document.getElementById("mobile_otp").value;
+    
+    if (user_otp_mobile==otp_from_back_mobile){
+        document.getElementById("myform1").style.display="none";
+        document.getElementById("myform2").style.display="block";
+        document.getElementById("mobile").value=mobile.value;
+        document.getElementById("mobile").readOnly = true; 
+        
+    }
+    else{
+        
+    }
+} 
+</script>
+<!--########################################## END MOBILE OTP #################################-->
+
+
+
+
+
+
+                <div style="display: none;" id="myform2" class="row justify-content-center text-center items">
                     <div class="col-12 item">
                         <div class="card ">
                         <h2 data-aos="" data-aos-delay="2000" class="title effect-static-text">Distributor <span class="featured"><span>Form</span></span></h2>
-                          <form action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
+                          <form id="disform" action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
                                        {% csrf_token %}
                                         <!-- Remove this field if you want to disable recaptcha -->
     
@@ -324,4 +524,5 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         {% include 'aa_ajax.html' %}
+        
 {% endblock content %}

@@ -41,6 +41,7 @@ $("#btnsave").click(function(){
                 notie.alert({ type: 'warning',position: 'bottom',text: data.distric+" is not available"})
             }
             else{
+                document.getElementById("disform").reset();
                 notie.alert({ type: 'success', text: data.name +' Your Form Submitted Successfully !',position: 'bottom', time: 5 }) 
                 
 
@@ -50,7 +51,7 @@ $("#btnsave").click(function(){
      }
 
      else{
-         console.log("vineet kashyappppppp")
+        
      }
      
      

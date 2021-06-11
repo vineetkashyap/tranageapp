@@ -3,7 +3,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from app import views
-from app.utils import send_email_otp
+from app.utils import send_email_otp,send_mobile_otp
 from dashboard import views as dash
 from django.conf.urls.static import static
 from django.conf import settings
@@ -49,7 +49,8 @@ urlpatterns = [
     path('sendmail/',views.sendmail,name="sendmail"),
     path('getcardata/',views.getcardata,name="getcardata"),
     path('enquiry/',views.enquiry,name="enquiry"),
-    path('send_email_otp/',send_email_otp,name="send_email_otp"),
+    path('send_email_otp',send_email_otp,name="send_email_otp"),
+    path('send_mobile_otp',send_mobile_otp,name="send_mobile_otp"),
 
 
 
