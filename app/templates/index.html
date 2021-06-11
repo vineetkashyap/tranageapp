@@ -14,56 +14,7 @@ me.default.css">
           <header id="header">
 
 
-<style>
-body {
-  background: black;
-}
-.button {
-  background-color: #ffffff;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: none;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Arial;
-  font-size: 20px;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-animation: glowing 1500ms infinite;
-  -moz-animation: glowing 1500ms infinite;
-  -o-animation: glowing 1500ms infinite;
-  animation: glowing 1500ms infinite;
-}
 
-@-webkit-keyframes glowing {
-  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-}
-
-@-moz-keyframes glowing {
-  0% { background-color: #c20606c5; -moz-box-shadow: 0 0 3px #db1818; }
-  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-}
-
-@-o-keyframes glowing {
-  0% { background-color: #c20606c5; box-shadow: 0 0 3px #c20606c5; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
-
-
-@keyframes glowing {
-  0% { background-color: #c20606c5; box-shadow: 0 0 3px #c20606c5; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
-
-
-</style>  
 
             <!-- Top Navbar -->
             <nav class="navbar navbar-expand top">
@@ -189,7 +140,7 @@ body {
                     <ul class="navbar-nav icons">
                         <li class="nav-item dropdown">
                                           
-                          <a href="#partners" style="color:#fff" class="button outline-button bg-danger">UPDATES</a>
+                          <a href="#partners"><img style="height: 40px;width:40px;margin-top: 10px;" src="{% static 'assets/images/client/bell.gif' %}" alt=""></a>
 
                         </li>
                     </ul>
@@ -517,29 +468,51 @@ margin: 0 5px;
 .owl-dot.active {
 background-color: #000 !important;
 }
-
+@media screen and (min-width: 600px) {
+  #client1{
+    margin-left: 25%;
+  }
+}
+@media screen and (max-width:590px) {
+    #client1 {
+    margin-left: 42%;
+  }
+}
+@media screen and (max-width:500px) {
+    #client1 {
+    margin-left: 40%;
+  }
+}
+@media screen and (max-width:418px) {
+    #client1 {
+    margin-left: 35%;
+  }
+}
+@media screen and (max-width:300px) {
+    #client1 {
+    margin-left: 33%;
+  }
+}
         </style>
 
   <h2 style=" text-align: center;" ><span class="featured"><span>Our</span></span> Clients</h2>
-<div class="brand-carousel section-padding owl-carousel" id="car2" style="margin:0 10px;">
+<div class="brand-carousel section-padding owl-carousel" id="car2" >
   <div class="single-logo">
-    <img src="{% static 'assets/images/client/BLACKD.png' %}" alt="" style="height:200px;width:200px">
+    <img id="client1" src="{% static 'assets/images/client/BLACKD.jpg' %}" alt="" style="height:100px;width:100px">
   </div>
 <div class="single-logo">
-    <img src="{% static 'assets/images/client/BUILD.jpg' %}" alt="" style="height:200px;width:200px">
+    <img id="client1" src="{% static 'assets/images/client/BUILD.png' %}" alt="" style="height:300x;width:100px">
   </div>
 <div class="single-logo">
-    <img src="{% static 'assets/images/client/MOTEM.jpg' %}" alt="" style="height:200px;width:200px">
+    <img id="client1" src="{% static 'assets/images/client/MOTEM.png' %}" alt="" style="height:100px;width:100px">
   </div>
 <div class="single-logo">
-    <img src="{% static 'assets/images/client/SO.jpg' %}" alt="" style="height:200px;width:200px">
+    <img id="client1" src="{% static 'assets/images/client/SO.jpg' %}" alt="" style="height:100px;width:100px">
   </div>
-{% comment %} <div class="single-logo">
-    <img src="{% static 'assets/images/client/TRANAGE.png' %}" alt="">
-  </div> {% endcomment %}
-{% comment %} <div class="single-logo">
-    <img src="{% static 'assets/images/client/BLACKDicon.png' %}" alt="">
-  </div> {% endcomment %}
+
+<div class="single-logo">
+    <img id="client1" src="{% static 'assets/images/client/lnt.png' %}" alt="" style="height:100px;width:100px">
+  </div> 
 </div>
 <script>
 $('#car1').owlCarousel({
