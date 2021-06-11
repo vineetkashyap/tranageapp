@@ -228,7 +228,7 @@ def  enquiry(request):
         mobile = request.POST['mobile']
         message_content  =request.POST['message']
         project  =request.POST['project']
-        print("==============================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print("==============================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",email_id)
         template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content,'project':project})
         email =EmailMessage (
             'We got a quary',
@@ -246,9 +246,9 @@ def  enquiry(request):
             [request.POST['email']],
             
         )
-        email.content_subtype='html'
-        file=open("requirements.txt","r")
-        email.attach("requirements.txt",file.read(),'text/plain')
+        # email.content_subtype='html'
+        # file=open("requirements.txt","r")
+        # email.attach("requirements.txt",file.read(),'text/plain')
         email.fail_silently=False
         email.send()
         return JsonResponse({'status':'sent'})

@@ -1,5 +1,4 @@
 {% load static %}
-
 <script>
 
     $("#savebtn").click(function(){
@@ -12,7 +11,8 @@
       
         mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
         console.log(mydata)
-          $.ajax({
+         if(card_email()==true){
+            $.ajax({
          url: "{% url 'enquiry' %}",
          method: "POST",
          data: mydata,
@@ -22,8 +22,72 @@
          }
          
         })
+         }
+         else{
+             alert("hummmmmm")
+         }
     
        
     })
+
+function card_email(){
+    var name = document.getElementById("name").value;
+    var a = document.getElementById("mobile").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    console.log(name)
+    console.log(a)
+    console.log(email)
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    if(name==""){
+
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your name!' })
+        document.getElementById("name").focus();
+        return false;
+        }
+    if(message==""){
+
+    notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your query!' })
+    document.getElementById("name").focus();
+    return false;
+    }
+
+    if(email==""){
+
+            notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your email address!' })
+            document.getElementById("email").focus();
+            return false;
+            }
+
+    if(!(re.test(email))){
+    notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' })
+    document.getElementById("email").focus();
+    return false;
+    }
+    if (isNaN(a)){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    if(a.length<10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be less than 10 digits' })
+          document.getElementById("mobile").focus();
+         return false;
+    }
+    if(a.length>10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be more than 10 digits' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    else{
+        return true;
+    }
+
+
+}
 
 </script>

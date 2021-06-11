@@ -1,39 +1,50 @@
-{% extends "base.html" %}
-
-
-
-<script>
-    var otp_from_back="";
-    function ajax_send_otp(){
-       document.getElementById("email_div").style.display='none';
-       email = document.getElementById("email");
-     $.post("/send_email_otp",
-         {
-             "email":email.value,
-             "csrfmiddlewaretoken":"{{csrf_token}}"
-         },
-         function(data, status){
-             if(status=="success"){
-                 otp_from_back = data;
-                 document.getElementById("email_otp").style.display='block';
-                 document.getElementById("email_verify_otp").style.display='block';
-                 document.getElementById("resend_email_otp").style.display='block';
-                 
-                 }
+function mobile_validation(){
+    var a = document.getElementById("mobile_field").value;
+    if (isNaN(a)){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
+        document.getElementById("mobile").focus();
+         return false;
     }
-    );
+    if(a.length<10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be less than 10 digits' })
+          document.getElementById("mobile").focus();
+         return false;
     }
-   function verify_otp(){
-       var user_otp=document.getElementById("otp").value;
-       if (user_otp==otp_from_back){
-           document.getElementById("verify_text_div").style.color="green";            
-           document.getElementById("verify_text_div").innerHTML="OTP Verified";
-           document.getElementById("otp_div").style.display="none";
-           document.getElementById("form_div").style.display="block";
-       }
-       else{
-           document.getElementById("verify_text_div").style.color="red";
-           document.getElementById("verify_text_div").innerHTML="Try Again!!";
-       }
-   } 
-</script>
+    if(a.length>10){
+        document.getElementById("mobile").value="";
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be more than 10 digits' })
+        document.getElementById("mobile").focus();
+         return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+
+
+
+function email_validation(){
+    var email = document.getElementById("email_field").value;
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    console.log(email)
+    if(email==""){
+
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your email address!' , time: 3})
+        document.getElementById("email").focus();
+         return false;
+    }
+
+    if(!(re.test(email))){
+        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' , time: 3})
+        document.getElementById("email").focus();
+         return false;
+    }
+    else{
+        return true;
+    }
+
+}

@@ -26,7 +26,9 @@ $("#btnsave").click(function(){
          data: mydata,
          success: function(data){
           
-             
+             document.getElementById("inform").reset();
+             document.getElementById("myform2").style.display="none";
+             document.getElementById("myform1").style.display="block";
              notie.alert({ type: 'success',  text: data.name + ' Your Form Has Been Submitted Successfullly !',position: 'bottom', time: 5 }) // Hides after 2 seconds
          }
      })
