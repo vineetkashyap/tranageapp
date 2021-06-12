@@ -28,7 +28,7 @@ $("#btnsave").click(function(){
 
      if(myfun2()==true)
      { 
-          console.log("yes2")
+        fun()
         $.ajax({
          url: "{% url 'distributor' %}",
          method: "POST",
@@ -42,9 +42,11 @@ $("#btnsave").click(function(){
             }
             else{
                 document.getElementById("disform").reset();
+                document.getElementById("emform").reset();
                 document.getElementById("myform2").style.display="none";
                 document.getElementById("myform1").style.display="block";
                 swal(data.name , " Your Form Has Been Submitted Successfullly !", "success");
+                window.location.href="/distributor"
                 
 
             }
@@ -62,4 +64,37 @@ $("#btnsave").click(function(){
       
 })
 </script>
+<script>
+
+    function fun(){
+        let timerInterval
+Swal.fire({
+  title: 'Sending Your Message',
+  html: 'I will close in <b></b> milliseconds.',
+  timer: 7000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getHtmlContainer()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

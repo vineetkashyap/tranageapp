@@ -1,5 +1,15 @@
 	{% load static %}
+	<style>
+
+		div{
+			background: #111117;
+		}
+		.nav-header{
+			background:#00A6A6 ;
+		}
+	</style>
  <div class="nav-header">
+
             <a href="{% url 'dashboard' %}" class="brand-logo">
                <img src="{% static 'images/tranage.png' %}" alt="" style="height:80px;width:80px; margin-left:33%">
             </a>
@@ -212,7 +222,7 @@
 						</a>
                         <ul aria-expanded="false">
 							<li><a href="{% url 'add_card' %}">Add Recent Update</a></li>
-							 <li><a href="{% url 'add_card' %}">Add Project</a></li>
+							 <li><a href="{% url 'add_project' %}">Add Project</a></li>
 							 <li><a href="{% url 'add_employee' %}">Add Employee</a></li>
 						</ul>
 
@@ -231,7 +241,7 @@
 
                     </li>
 					 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-044-file"></i>
+						<i class="fas fa-user-secret"></i>
 							<span class="nav-text">Agent</span>
 						</a>
                         <ul aria-expanded="false">

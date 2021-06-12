@@ -143,7 +143,7 @@
                                 <div class="col-12 col-md-6 col-lg-6 item">
                                     <div class="card ">
                                     <h2 data-aos="" data-aos-delay="2000" class="title effect-static-text">Be An <span class="featured"><span>Investor</span></span></h2>
-                                      <form action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
+                                      <form id="emform" action="" method="POST" class="nexgen-simple-form " onsubmit="return myfun2();"> 
                                                    {% csrf_token %}
                                                     <!-- Remove this field if you want to disable recaptcha -->
                 
@@ -158,7 +158,7 @@
                                                             <input type="text" style="color:white;display: none;" id="email_otp" name="email_otp" class="form-control field-name" placeholder="Enter Email OTP" required>
                                                         </div>
                                                         <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
-                                                            <input type="text" style="color:white;display: none;"  id="mobile_otp" name="mobile_otp" class="form-control field-name" placeholder="Enter Mobilnone OTP" required>
+                                                            <input type="text" style="color:white;display: none;"  id="mobile_otp" name="mobile_otp" class="form-control field-name" placeholder="Enter Mobile OTP" required>
                                                         </div>
                                                         
                                                        

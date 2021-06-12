@@ -8,7 +8,7 @@ class Add_update_Admin(admin.ModelAdmin):
 
 @admin.register(Add_project)
 class Add_project_Admin(admin.ModelAdmin):
-    list_display = ['id','project_name','project_loading_location','project_unloading_location','material_type','per_trip_cost','per_unit_cost','project_start_date','project_end_date','loading_unit','project_employee','get_products']
+    list_display = ['id','project_name','project_loading_location','project_unloading_location','material_type','per_trip_cost','per_unit_cost','project_start_date','project_end_date','loading_unit','project_loading_employee','get_products']
 
 @admin.register(Employee_model)
 class Employee_model_Admin(admin.ModelAdmin):

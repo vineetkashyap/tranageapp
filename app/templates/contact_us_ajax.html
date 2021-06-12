@@ -19,12 +19,13 @@
         mydata = {name:name1,email:email1,mobile:mobile1,message:message1};
         console.log(mydata)
 if(funval()==true){
-    
+        fun()
         $.ajax({
          url: "{% url 'sendmail' %}",
          method: "POST",
          data: mydata,
          success: function(data){
+             document.getElementById("myform").reset();
              
              notie.alert({ type: 'success',  text: name1 + ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
          }
@@ -33,3 +34,36 @@ if(funval()==true){
 }
     })
 </script>
+<script>
+
+    function fun(){
+        let timerInterval
+Swal.fire({
+  title: 'Sending Your Message',
+  html: 'I will close in <b></b> milliseconds.',
+  timer: 8000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getHtmlContainer()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

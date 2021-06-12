@@ -71,6 +71,7 @@ function card_email(){
 mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
 console.log(mydata)
  if(card_email()==true){
+    fun()
     $.ajax({
  url: "{% url 'enquiry' %}",
  method: "POST",
@@ -93,13 +94,40 @@ console.log(mydata)
 
   
 
-
-
-   
-
-
-
 </script>
 
 {% endfor %}
+<script>
+
+    function fun(){
+        let timerInterval
+Swal.fire({
+  title: 'Sending Your Message',
+  html: 'I will close in <b></b> milliseconds.',
+  timer: 8000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getHtmlContainer()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -24,7 +24,7 @@
                                     <h1 class="title effect-static-text" style="font-size:2.5rem">Get in Touch</h1>
                                     
                                     <!-- Action -->
-                                    <form action="{% url 'sendmail' %}" method="POST"  class="nexgen-simple-form" onsubmit="return funval();">
+                                    <form id="myform" action="{% url 'sendmail' %}" method="POST"  class="nexgen-simple-form" onsubmit="return funval();">
                                        {% csrf_token %}
     
                                         <div class="row form-group-margin">

@@ -88,26 +88,27 @@ def add_card(request):
 
  
 
-   
+from api.models import VehicleRegistraionModel
 
-# def add_project(request):
-#      if request.method == 'POST':
-#          project_data = request.POST
-#          project_name=project_data.get('')
-#          project_loading_location=project_data.get('')
-#          project_unloading_location=project_data.get('')
-#          material_type=project_data.get('')
-#          per_trip_cost=project_data.get('')
-#          per_unit_cost=project_data.get('')
-#          project_start_date =project_data.get('')
-#          project_end_date = project_data.get('')
-#          loading_unit = project_data.get('')
-#          project_employee = project_data.get('')
-#          all_project_data = Add_project()
-#          all_project_data.save()
-#          return redirect('project_list')
-#      else:
-#          return render(request,'dash/elements/add_project.html')
+def add_project(request):
+     if request.method == 'POST':
+         project_data = request.POST
+         project_name=project_data.get('')
+         project_loading_location=project_data.get('')
+         project_unloading_location=project_data.get('')
+         material_type=project_data.get('')
+         per_trip_cost=project_data.get('')
+         per_unit_cost=project_data.get('')
+         project_start_date =project_data.get('')
+         project_end_date = project_data.get('')
+         loading_unit = project_data.get('')
+         project_employee = project_data.get('')
+         all_project_data = Add_project()
+         all_project_data.save()
+         return redirect('project_list')
+     else:
+         vehicle = VehicleRegistraionModel.objects.all()
+         return render(request,'dash/elements/add_project.html',{"vehicles":vehicle})
     
 
 ###################################    ADD EMPLOYEE ################################################

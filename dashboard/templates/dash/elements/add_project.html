@@ -125,47 +125,110 @@
 						</div>
 					</div>
 				</div>
-                <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <span>Element</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Element</a></li>
-                        </ol>
-                    </div>
-                </div>
+               
                 <!-- row -->
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Add Your Recent Update Card</h4>
+                                <h4 class="card-title">Add a New Project</h4>
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
                                     <form>
                                        <div class="form-group">
-                                            <input class="form-control form-control-lg" type="text" placeholder="Heading Goes Here">
+                                        <p class="mb-1">Project Name</p>
+                                            <input class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
+                                       <div class="form-group">
+                                        <p class="mb-1">Loading Loaction </p>
+                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                        </div>
+                                       <div class="form-group">
+                                        <p class="mb-1">Unloading Loaction</p>
+                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="mb-1">Material Type</p>
+                                            <select class="form-control default-select form-control-lg">
+                                               
+                                                <option >GITTI </option>
+                                                <option>SAND</option>
+                                                <option>MORANG</option>
+                                            </select>
+                                          </div>
+        
+                                       <div class="form-group">
+                                        <p class="mb-1">Per Trip Cost</p>
+                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                        </div>
+                                       <div class="form-group">
+                                        <p class="mb-1">Per Unit Cost</p>
+                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="mb-1">Start Date</p>
+                                         <input name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
+                                      </div>
+                                      <div class="form-group">
+                                        <p class="mb-1">End Date</p>
+                                     <input name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
+                                  </div>
+                                  <div class="form-group">
+                                    <p class="mb-1">Loading Unit</p>
+                                    <select class="form-control default-select form-control-lg">
+                                       
+                                        <option >METRIC TONNE</option>
+                                        <option>FEET</option>
+                                        <option>CUBIC METER</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Loading Employee:</label>
+                                    <select multiple class="form-control default-select" id="sel2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                  <div class="form-group">
+                                    <label>Unloading Employee:</label>
+                                    <select multiple class="form-control default-select" id="sel2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <p class="mb-1">Project Status</p>
+                                    <select class="form-control default-select form-control-lg">
+                                       
+                                        <option >upcoming</option>
+                                        <option>active</option>
+                                        <option>deactive</option>
+                                    </select>
+                                  </div>
 
-                                    
-                                          <div class="form-group">
+                                  <div class="form-group">
+                                    <label>Mapped Vehicles :</label>
+                                    <select multiple class="form-control default-select" id="sel2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div> 
+                                        <div class="form-group">
                                             <p class="mb-1">Discription</p>
                                             <textarea class="form-control" rows="8" id="comment" placeholder=""></textarea>
                                         </div>
-                                            <div class="form-group">
-                                            <input class="form-control form-control-lg" type="text" placeholder="Location">
-                                        </div>
-                                           <div class="form-group">
-                                                 <p class="mb-1">Expiry Date</p>
-                             <input name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        
+                                        <button type="submit" class="btn btn-primary">Add  Project</button>
                                     </form>
                                 </div>
                             </div>

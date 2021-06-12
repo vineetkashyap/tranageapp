@@ -73,7 +73,7 @@ def distributor(request):
             all_data.save()
 
             template = render_to_string('email_dist.html',{'name':full_name,'last_name':father_name,'dob':date_of_birth,'aadhar_no':aadhar_no,'pan_no':pan_no,'education':education,'occupation':occupation,'residential':residential_address,'house_no':house_no,'street':street,'block':block,'distric':distric,'state':state,'mobile':mobile_no,'alt_mobile':alternate_mobile_no,'email':email,'message':message})
-            template_user = render_to_string('email_user.html')
+            template_user = render_to_string('email_user_dis.html',{'name':full_name})
             email1 = (
             'We got distributor',
             template,
@@ -83,7 +83,7 @@ def distributor(request):
            
             email2 = (
             'Thanks user',
-            "distributor page ",
+             template_user,
             settings.EMAIL_HOST_USER,
             [request.POST.get('email')],
         )
@@ -143,7 +143,7 @@ def investor_view(request):
         all_data.save()
         ###############email################################
         template = render_to_string('email_investor.html',{'name':full_name,'company':company,'occupation':occupation,'aadhar_no':aadhar_no,'residential_address':residential_address,'corresponding_address':corresponding_address,'mobile_no':mobile_no,'alternate_mobile_no':alternate_mobile_no,'email':email,'invest':invest})
-        template_user = render_to_string('email_user.html')
+        template_user = render_to_string('email_user.html',{'name':full_name})
         email1 = (
             'We got a new mail',
             template,
@@ -181,7 +181,6 @@ def getcardata(request):
         card = Add_update.objects.filter(id=y)
         card=list(card)
         
-        print("====================================================>",card)
         return JsonResponse({'dt':card})
 
 
@@ -228,7 +227,6 @@ def  enquiry(request):
         mobile = request.POST['mobile']
         message_content  =request.POST['message']
         project  =request.POST['project']
-        print("==============================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",email_id)
         template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content,'project':project})
         email =EmailMessage (
             'We got a quary',

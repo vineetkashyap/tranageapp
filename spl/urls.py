@@ -51,6 +51,7 @@ urlpatterns = [
     path('enquiry/',views.enquiry,name="enquiry"),
     path('send_email_otp',send_email_otp,name="send_email_otp"),
     path('send_mobile_otp',send_mobile_otp,name="send_mobile_otp"),
+    path('add_project/',dash.add_project,name="add_project"),
 
 
 
