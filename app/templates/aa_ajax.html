@@ -44,7 +44,7 @@ $("#btnsave").click(function(){
                 document.getElementById("disform").reset();
                 document.getElementById("myform2").style.display="none";
                 document.getElementById("myform1").style.display="block";
-                notie.alert({ type: 'success', text: data.name +' Your Form Submitted Successfully !',position: 'bottom', time: 5 }) 
+                swal(data.name , " Your Form Has Been Submitted Successfullly !", "success");
                 
 
             }
@@ -62,3 +62,4 @@ $("#btnsave").click(function(){
       
 })
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

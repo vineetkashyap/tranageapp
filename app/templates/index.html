@@ -234,7 +234,7 @@ me.default.css">
     
    
       <div class="modal-footer">
-        {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
+         <button type="button" id="informbtn{{card.id}}" class="btn btn-secondary" data-dismiss="modal">Close</button> 
          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#example{{card.id}}" style="background:#00A6A6">Inform Us</a>
        
       </div>
@@ -256,32 +256,32 @@ me.default.css">
                                 <h3 class="register-heading" style="text-align:center">Let Us Know</h3>
                                 <div class="row register-form">
                                     <div class="col-md-12">
-                                    <form action="">
+                                    <form id="proform{{card.id}}" action="">
                                         <div class="form-group">
-                                            <input required type="text" class="form-control" id="name" placeholder="Name *" value="" />
+                                            <input required type="text" class="form-control" id="name{{card.id}}" placeholder="Name *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input id="email" required type="email" class="form-control" placeholder="Your Email *" value="" />
+                                            <input id="email{{card.id}}" required type="email" class="form-control" placeholder="Your Email *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input  id="mobile" required type="mobile" class="form-control" placeholder="contact no. *" value="" />
+                                            <input  id="mobile{{card.id}}" required type="mobile" class="form-control" placeholder="contact no. *" value="" />
                                         </div>
-                                       <input id="project" value="{{card.heading}}" type="text" style="display:none;">
+                                       <input id="project{{card.id}}" value="{{card.heading}}" type="text" style="display:none;">
                                         
                                     </div>
                                     <div class="col-md-12">
                                         
                                         
                                         <div class="form-group">
-                                             <textarea id="message" name="message" class="form-control field-message" placeholder="Message"></textarea>
+                                             <textarea id="message{{card.id}}" name="message" class="form-control field-message" placeholder="Message"></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                            </div>
       <div class="modal-footer">
-        {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
-        <input type="button" id="savebtn"   class="btn btn-primary" style="background:#00A6A6" value="{{card.id}}" >
+        <button type="button" id="closebtn{{card.id}}" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+        <input type="button" id="savebtn{{card.id}}"    class="btn btn-primary" style="background:#00A6A6" value="Send" >
       </div>
       </form>
     </div>

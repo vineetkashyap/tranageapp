@@ -1,93 +1,105 @@
 {% load static %}
+{% for card in cards %}
 <script>
 
-    $("#savebtn").click(function(){
+$("#savebtn{{card.id}}").click(function(){
 
-        var name= $("#name").val();
-        var email= $("#email").val();
-        var mobile= $("#mobile").val();
-        var message= $("#message").val();
-        var project= $("#project").val();
-      
-        mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
-        console.log(mydata)
-         if(card_email()==true){
-            $.ajax({
-         url: "{% url 'enquiry' %}",
-         method: "POST",
-         data: mydata,
-         success: function(data){
-             
-             notie.alert({ type: 'success',  text:  ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
-         }
-         
-        })
-         }
-         else{
-             alert("hummmmmm")
-         }
-    
-       
-    })
-
+var name= $("#name{{card.id}}").val();
+var email= $("#email{{card.id}}").val();
+var mobile= $("#mobile{{card.id}}").val();
+var a= mobile;
+var message= $("#message{{card.id}}").val();
+var project= $("#project{{card.id}}").val();
 function card_email(){
-    var name = document.getElementById("name").value;
-    var a = document.getElementById("mobile").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
+    
     console.log(name)
     console.log(a)
     console.log(email)
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     if(name==""){
-
-        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your name!' })
-        document.getElementById("name").focus();
+        
+       
+        swal('Please enter your name!');
+        document.getElementById("name{{card.id}}").focus();
         return false;
         }
-    if(message==""){
-
-    notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your query!' })
-    document.getElementById("name").focus();
-    return false;
-    }
+    
 
     if(email==""){
 
-            notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your email address!' })
-            document.getElementById("email").focus();
+            swal('Please enter your email address!')
+            document.getElementById("email{{card.id}}").focus();
             return false;
             }
 
     if(!(re.test(email))){
-    notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct email address!' })
-    document.getElementById("email").focus();
+    swal('Please enter correct email address!')
+    document.getElementById("email{{card.id}}").focus();
     return false;
     }
     if (isNaN(a)){
-        document.getElementById("mobile").value="";
-        notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
-        document.getElementById("mobile").focus();
+        document.getElementById("mobile{{card.id}}").value="";
+       swal('Please enter correct mobile number!')
+        document.getElementById("mobile{{card.id}}").focus();
          return false;
     }
     if(a.length<10){
-        document.getElementById("mobile").value="";
-        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be less than 10 digits' })
-          document.getElementById("mobile").focus();
+        document.getElementById("mobile{{card.id}}").value="";
+       swal('Mobile Number can not be less than 10 digits')
+          document.getElementById("mobile{{card.id}}").focus();
          return false;
     }
     if(a.length>10){
-        document.getElementById("mobile").value="";
-        notie.alert({ type: 'warning',position: 'bottom',text: 'Mobile Number can not be more than 10 digits' })
-        document.getElementById("mobile").focus();
+        document.getElementById("mobile{{card.id}}").value="";
+       swal('Mobile Number can not be more than 10 digits' )
+        document.getElementById("mobile{{card.id}}").focus();
          return false;
     }
+    if(message==""){
+
+        swal('Please enter your query!' )
+        document.getElementById("message{{card.id}}").focus();
+        return false;
+        }
     else{
         return true;
     }
 
 
 }
+mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
+console.log(mydata)
+ if(card_email()==true){
+    $.ajax({
+ url: "{% url 'enquiry' %}",
+ method: "POST",
+ data: mydata,
+ success: function(data){
+     document.getElementById("closebtn{{card.id}}").click();
+     document.getElementById("informbtn{{card.id}}").click();
+     document.getElementById("proform{{card.id}}").reset();
+     swal("Good job!", "we will contact you soon !", "success");
+    
+ }
+ 
+})
+ }
+ else{
+ }
+
+
+})
+
+  
+
+
+
+   
+
+
 
 </script>
+
+{% endfor %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
