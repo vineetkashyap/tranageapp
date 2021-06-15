@@ -107,6 +107,7 @@ def add_project(request):
          all_project_data.save()
          return redirect('project_list')
      else:
+         emp = Employee_model.objects.all()
          vehicle = VehicleRegistraionModel.objects.all()
          return render(request,'dash/elements/add_project.html',{"vehicles":vehicle})
     

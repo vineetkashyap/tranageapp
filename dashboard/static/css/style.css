@@ -217,26 +217,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-  --blue: #5e72e4;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #EE3232;
-  --orange: #ff9900;
-  --yellow: #FFFA6F;
-  --green: #297F00;
-  --teal: #20c997;
-  --cyan: #3065D0;
-  --white: #fff;
+ 
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #EB8153;
-  --secondary: #6418C3;
-  --success: #68CF29;
-  --info: #51A6F5;
-  --warning: #FFAB2D;
-  --danger: #FF4C41;
-  --light: #E8E8E8;
   --dark: #6e6e6e;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -8750,10 +8733,10 @@ a {
   color: #5e72e4; }
 
 .text-indigo {
-  color: #6610f2; }
+  color: #00a6a6; }
 
 .text-purple {
-  color: #6f42c1; }
+  color: #00a6a6; }
 
 .text-pink {
   color: #e83e8c; }

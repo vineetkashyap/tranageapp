@@ -138,19 +138,19 @@
                                     <form>
                                        <div class="form-group">
                                         <p class="mb-1">Project Name</p>
-                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                            <input id="name" class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
                                        <div class="form-group">
                                         <p class="mb-1">Loading Loaction </p>
-                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                            <input id="loading_location" class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
                                        <div class="form-group">
                                         <p class="mb-1">Unloading Loaction</p>
-                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                            <input id="unloading_location"  class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <p class="mb-1">Material Type</p>
-                                            <select class="form-control default-select form-control-lg">
+                                            <select id="material_type" class="form-control default-select form-control-lg">
                                                
                                                 <option >GITTI </option>
                                                 <option>SAND</option>
@@ -160,19 +160,19 @@
         
                                        <div class="form-group">
                                         <p class="mb-1">Per Trip Cost</p>
-                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                            <input id="per_trip_cost" class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
                                        <div class="form-group">
                                         <p class="mb-1">Per Unit Cost</p>
-                                            <input class="form-control form-control-lg" type="text" placeholder="">
+                                            <input id="per_unit_cost" class="form-control form-control-lg" type="text" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <p class="mb-1">Start Date</p>
-                                         <input name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
+                                         <input id="dob" name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
                                       </div>
                                       <div class="form-group">
                                         <p class="mb-1">End Date</p>
-                                     <input name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
+                                     <input id name="datepicker" class="datepicker-default form-control picker__input" id="datepicker" readonly="" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="datepicker_root" placeholder="Choose Date">
                                   </div>
                                   <div class="form-group">
                                     <p class="mb-1">Loading Unit</p>
@@ -186,21 +186,20 @@
                                   <div class="form-group">
                                     <label>Loading Employee:</label>
                                     <select multiple class="form-control default-select" id="sel2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        {% for emp in emps %}
+                                       <option>{{emp}}</option>
+                                         
+                                       {% endfor %}
                                     </select>
                                 </div>
                                   <div class="form-group">
                                     <label>Unloading Employee:</label>
                                     <select multiple class="form-control default-select" id="sel2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                       {% for emp in emps %}
+                                       <option>{{emp}}</option>
+                                         
+                                       {% endfor %}
+                                      
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -216,11 +215,11 @@
                                   <div class="form-group">
                                     <label>Mapped Vehicles :</label>
                                     <select multiple class="form-control default-select" id="sel2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        {% for vehicle in vehicles %}
+
+                                       <option>{{vehicle}}</option>
+                                         
+                                       {% endfor %}
                                     </select>
                                 </div> 
                                         <div class="form-group">

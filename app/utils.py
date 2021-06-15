@@ -36,14 +36,14 @@ def send_email_otp(request):
 from twilio.rest import Client
 
 def send_mobile_otp(request):
-    # account_sid = "AC82baaae2ec5a11e204d15b23bcc04fad"
-    # auth_token = "2508bb9b64305c9c788f884de428083d"
-    # client = Client(account_sid, auth_token)
+    account_sid = "AC82baaae2ec5a11e204d15b23bcc04fad"
+    auth_token = "2508bb9b64305c9c788f884de428083d"
+    client = Client(account_sid, auth_token)
     o=generateOTP()
     print("=====================================>Mobile-OTP : ",o)
-    # message = client.messages.create(
-    #                     body="Your Verification OTP is : "+str(o),
-    #                     from_='+19706707531',
-    #                     to='+917905637810'
-    #                 )
+    message = client.messages.create(
+                        body="Your Verification OTP is : "+str(o),
+                        from_='+19706707531',
+                        to='+917905637810'
+                    )
     return JsonResponse({'o':o,"status":"success"})

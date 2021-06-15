@@ -19,11 +19,7 @@ class Add_update(models.Model):
     expiry_date = models.CharField(max_length=500)
 
 
-CATEGORY_CHOICES = (
-        ('Upcoming', 'Upcoming'),
-        ('Active', 'Active'),
-        ('Deactive', 'Deactive'),
-    )
+
 class Add_project(models.Model):
 
     project_name = models.CharField(max_length=500)
@@ -37,7 +33,7 @@ class Add_project(models.Model):
     loading_unit = models.CharField(max_length=500)
     project_loading_employee = models.CharField( max_length=50)
     project_unloading_employee = models.CharField( max_length=50)
-    project_status =  models.CharField(max_length=50,choices=CATEGORY_CHOICES)
+    project_status =  models.CharField(max_length=50)
     project_discription = models.TextField()
     mapped_vehicle = models.ManyToManyField(VehicleRegistraionModel, related_name='my_vehicle')
     def get_products(self):

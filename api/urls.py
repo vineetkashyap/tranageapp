@@ -38,6 +38,8 @@ urlpatterns = [
     path('getpro/',add_project.all_service_json,name='all_service_json'),
     path('getprod/',add_project.getprod,name='all_service_jsond'),
 
+    path('get_project_by_id/',employee_detail.get_project_by_id,name='get_project_by_id'),
+
 
 
 
