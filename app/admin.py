@@ -8,3 +8,4 @@ class Distributor_admin(admin.ModelAdmin):
 @admin.register(Investor_Model)
 class Investor_admin(admin.ModelAdmin):
     list_display = ['id','full_name']
+

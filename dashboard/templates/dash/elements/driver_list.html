@@ -856,7 +856,7 @@
                                           {% for driver  in drivers %}
 										      <tr >
                                                 <td><img class="rounded-circle" width="35" src="{% static 'images/profile/small/pic1.jpg' %}" alt=""></td>
-                                                <td>{{driver.driver_name}}</td>
+                                                <td><a href="{% url 'driver_detail' driver.id %}">{{driver.driver_name}}</a></td>
                                                 <td><a href="javascript:void(0);"><strong>{{driver.mobile_number}}</strong></a></td>
                                                 <td><a href="javascript:void(0);"><strong>{{driver.email}}</strong></a></td>
                                                 <td>{{driver.registered_on}}</td>

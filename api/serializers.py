@@ -1,7 +1,9 @@
+from django.db.models import fields
 from .models import *
 from dashboard.models import Add_project,Employee_model
 from rest_framework import serializers
-from rest_framework import serializers
+from dashboard.models import Add_update
+
 from django.contrib.auth.models import User
 
 # User Serializer
@@ -61,7 +63,16 @@ class Add_ProjectSerializer(serializers.ModelSerializer):
 class LoadingSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model =Loding_Model
+        model =Trip_model
         fields  ='__all__'
 
 
+class Add_Card_Serializers(serializers.ModelSerializer):
+    class Meta:
+        model=Add_update
+        fields = '__all__'
+
+class Get_project(serializers.ModelSerializer):
+    class Meta:
+        model = Add_project
+        fields = '__all__'

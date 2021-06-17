@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tranage Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/star-rating/star-rating-svg.css' %}">
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+
+		
+		
+        <!--**********************************
+            Header start
+        ***********************************-->
+        
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        {% include 'dash/elements/sidebar.html' %}
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<!-- Add Project -->
+				<div class="modal fade" id="addProjectSidebar">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Create Project</h5>
+								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="text-black font-w500">Project Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Deadline</label>
+										<input type="date" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Client Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-primary">CREATE</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                           
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade show active" id="first">
+                                                <img class="img-fluid" src="{{driver.aadhar_front.url}}" alt="">
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="second">
+                                                <img class="img-fluid" src="{{driver.aadhar_back.url}}" alt="">
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="third">
+                                                <img class="img-fluid" src="{{driver.aadhar_front.url}}" alt="">
+                                            </div>
+											<div role="tabpanel" class="tab-pane fade" id="for">
+                                                <img class="img-fluid" src="{{driver.aadhar_back.url}}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav slide-item-list mt-3" role="tablist">
+                                                <li role="presentation" class="show">
+                                                    <a href="#first" role="tab" data-toggle="tab">
+                                                        <img class="img-fluid" src="{{driver.aadhar_front.url}}"  alt="" width="50">
+                                                    </a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#second" role="tab" data-toggle="tab"><img class="img-fluid" src="{{driver.aadhar_back.url}}"  alt="" width="50"></a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#third" role="tab" data-toggle="tab"><img class="img-fluid" src="{{driver.aadhar_front.url}}"  alt="" width="50"></a>
+                                                </li>
+												<li role="presentation">
+                                                    <a href="#for" role="tab" data-toggle="tab"><img class="img-fluid" src="{{driver.aadhar_back.url}}"  alt="" width="50"></a>
+                                                </li>
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--Tab slider End-->
+                                    <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
+                                        <div class="product-detail-content">
+                                            <!--Product details-->
+                                            <div class="new-arrival-content pr">
+                                        
+												<div class="d-table mb-2">
+													<p class="price float-left d-block">Name : {{driver.driver_name}}</p>
+                                                </div>
+                                               <hr>
+                                                <h3>Father name : <span class="badge badge-success light">{{driver.father_name}}</span> </h3>
+                                                
+                                                <h3>Mobile number : <span class="badge badge-success light">+91 {{driver.mobile_number}}</span></h3>
+                                                <h3>Alternate mobile number : <span class="badge badge-success light">+91 {{driver.alternate_mobile_number}}</span> </h3>
+                                                <h3>Date of Birth  :<span class="badge badge-success light">{{driver.date_of_birth}}</span> </h3>
+                                                <h3>Email id  :<span class="badge badge-success light">{{driver.email}}</span> </h3>
+                                                <h3>Address  : <span class="badge badge-success light">{{driver.address}} </span> </h3>
+                                                <h3>Aadhar number  : <span class="badge badge-success light">{{driver.aadhar_number}}</span></h3>
+                                                <h3>Pan number  : <span class="badge badge-success light">{{driver.pan_number}}</span> </h3>
+                                                <h3>DL number : <span class="badge badge-success light">{{driver.dl_number}}</span> </h3>
+                                                <h3>DL Type : <span class="badge badge-success light">{{driver.dl_type}}</span> </h3>
+                                                <h3>DL Expiry Date : <span class="badge badge-success light">{{driver.dl_expiry_date}}</span> </h3>
+                                                <h3>Experiance: <span class="badge badge-success light">{{driver.experience}}</span> </h3>
+                                                <h3>Location: <span class="badge badge-success light">{{driver.location}}</span> </h3>
+                                                <h3>Registered On   : <span class="badge badge-success light">{{driver.register_on}}</span> </h3>
+                                
+                                                
+                                                  <hr>
+                                                  <div class="filtaring-area my-3">
+                                                    <div class="size-filter">
+                                                      <h3 class="m-b-15">Bank Details --</h4>
+                                                        <hr>
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option5">Bank account number </label>
+														
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option4">{{driver.bank_account_number}}</label>
+														</div>
+                                                    </div>
+                                                </div>
+                                                <div class="filtaring-area my-3">
+                                                    <div class="size-filter">
+                                                      
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option5">Bank account name </label>
+
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option4">{{driver.bank_account_name}}</label>
+														</div>
+                                                    </div>
+                                                </div>
+                                        
+                                                 
+                                                 <div class="filtaring-area my-3">
+                                                    <div class="size-filter">
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option5">Bank name </label>
+														
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option4">{{driver.bank_name}}</label>
+														</div>
+                                                    </div>
+                                                </div>
+                                                 <div class="filtaring-area my-3">
+                                                    <div class="size-filter">
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option5">Branch name </label>
+														
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option4">{{driver.branch_name}}</label>
+														</div>
+                                                    </div>
+                                                </div>
+                                                 <div class="filtaring-area my-3">
+                                                    <div class="size-filter">
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option5"> Ifsc code</label>
+														
+															<label class="btn btn-outline-primary light btn-sm"><input type="radio" class="position-absolute invisible" name="options" id="option4">{{driver.ifsc_code}}</label>
+														</div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <!--Quantity start-->
+												
+                                                <!--Quanatity End-->
+                                                <div class="shopping-cart mt-3">
+                                                  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<!-- review -->
+					<div class="modal fade" id="reviewModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Review</h5>
+									<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="text-center mb-4">
+											<img class="img-fluid rounded" width="78" src="./images/avatar/1.jpg" alt="DexignZone">
+										</div>
+										<div class="form-group">
+											<div class="rating-widget mb-4 text-center">
+												<!-- Rating Stars Box -->
+												<div class="rating-stars">
+													<ul id="stars">
+														<li class="star" title="Poor" data-value="1">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Fair" data-value="2">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Good" data-value="3">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="Excellent" data-value="4">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+														<li class="star" title="WOW!!!" data-value="5">
+															<i class="fa fa-star fa-fw"></i>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Comment" rows="5"></textarea>
+										</div>
+										<button class="btn btn-success btn-block">RATE</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank"> SCG IT Team </a> 2021</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+     <script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <!-- Datatable -->
+    <script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/deznav-init.js' %}"></script>
+    
+</body>
+</html>

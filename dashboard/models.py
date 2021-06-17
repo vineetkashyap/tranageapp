@@ -11,6 +11,8 @@ class Employee_model(models.Model):
     assigned_project = models.CharField(max_length=100)
     trip_added  = models.CharField(max_length=50,default=0)
     trip_verified = models.CharField(max_length=50,default=0)
+    def __str_(self):
+        return self.employee_
 
 class Add_update(models.Model):
     heading = models.CharField(max_length=500)

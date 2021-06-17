@@ -148,7 +148,7 @@ class DriverRegistrationModel(models.Model):
 
 ############################################START LODING MODELS########################################
 
-class Loding_Model(models.Model):
+class Trip_model(models.Model):
     vehicle_no = models.CharField(max_length=500)
     driver_name = models.CharField(max_length=500)
     driver_contact_no = models.CharField(max_length=500)
@@ -157,7 +157,6 @@ class Loding_Model(models.Model):
     weight_at_unloading = models.CharField(max_length=500)
     distance_between_loading_and_unloading = models.CharField(max_length=50)
     trip_material_cost = models.CharField(max_length=50)
-    trip_complition_time = models.CharField(max_length=50)
     loading_from = models.CharField(max_length=500)
     unloading_at = models.CharField(max_length=500,blank=True)
     advance_fuel = models.CharField(max_length=500)

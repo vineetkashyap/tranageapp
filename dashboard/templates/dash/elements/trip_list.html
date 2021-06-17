@@ -845,21 +845,22 @@
                                          <thead style="text-align: center">
                                             <tr>
                                                 <th></th>
-                                                <th>Name</th>
+                                                <th>Vehicle No.</th>
+                                                <th>Driver Name</th>
                                                 <th>Mobile</th>
-                                                <th>Email</th>
-                                                <th>Joining Date</th>
+                                
+                                                <th>Loading From</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody  style="text-align: center">
-                                          {% for driver  in drivers %}
+                                          {% for trip  in trips %}
 										      <tr >
                                                 <td><img class="rounded-circle" width="35" src="{% static 'images/profile/small/pic1.jpg' %}" alt=""></td>
-                                                <td>{{driver.driver_name}}</td>
-                                                <td><a href="javascript:void(0);"><strong>{{driver.mobile_number}}</strong></a></td>
-                                                <td><a href="javascript:void(0);"><strong>{{driver.email}}</strong></a></td>
-                                                <td>{{driver.registered_on}}</td>
+                                                <td>{{trip.vehicle_no}}</td>
+                                                <td><a href="javascript:void(0);"><strong>{{trip.driver_name}}</strong></a></td>
+                                                <td><a href="javascript:void(0);"><strong>{{trip.driver_contact_no}}</strong></a></td>
+                                                <td>{{trip.loading_from}}</td>
                                                 <td>
 													<div class="d-flex">
 														<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>

@@ -27,7 +27,7 @@ def team(request):
     return render(request,'team.html')
 
 def service(request):
-    return render(request,'services.html')
+    return render(request,'service2.html')
 
 def partner(request):
     return render(request,'partner.html')

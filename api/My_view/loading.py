@@ -22,7 +22,7 @@ from rest_framework.permissions import IsAuthenticated
 #             return  Response(serializer.data,status=status.HTTP_200_OK)
             
 class Loading_View(ModelViewSet):
-    queryset  = Loding_Model.objects.all()
+    queryset  = Trip_model.objects.all()
     serializer_class = LoadingSerializer
     authetication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]

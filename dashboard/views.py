@@ -53,6 +53,10 @@ def project_list(request):
     project = Add_project.objects.all()
     return render(request,'dash/elements/project_list.html',{'projects':project})
 
+def trip_List(request):
+    trip = Trip_model.objects.all()
+    return render(request,'dash/elements/trip_list.html',{'trips':trip})
+
 def truck_owner_detail(request,id):
     truck = TruckOwnerModel.objects.get(id=id)
     return render(request,'dash/elements/truck_owner_detail.html',{'truck':truck})
@@ -72,6 +76,14 @@ def agent_detail(request,id):
     except Tranage_Agent.DoesNotExist:
         truck =None
     return render(request,'dash/elements/agent_detail.html',{'truck':truck})    
+
+def driver_detail(request,id):
+       
+    try:
+        driver = DriverRegistrationModel.objects.get(id=id)
+    except DriverRegistrationModel.DoesNotExist:
+        truck =None
+    return render(request,'dash/elements/driver_detail.html',{'driver':driver})    
 
 def add_card(request):
     if request.method =='POST':
@@ -93,23 +105,31 @@ from api.models import VehicleRegistraionModel
 def add_project(request):
      if request.method == 'POST':
          project_data = request.POST
-         project_name=project_data.get('')
-         project_loading_location=project_data.get('')
-         project_unloading_location=project_data.get('')
-         material_type=project_data.get('')
-         per_trip_cost=project_data.get('')
-         per_unit_cost=project_data.get('')
-         project_start_date =project_data.get('')
-         project_end_date = project_data.get('')
-         loading_unit = project_data.get('')
-         project_employee = project_data.get('')
-         all_project_data = Add_project()
+         project_name=project_data.get('name')
+         project_loading_location=project_data.get('loading_location')
+         project_unloading_location=project_data.get('unloading_location')
+         material_type=project_data.get('material_type')
+         per_trip_cost=project_data.get('per_trip_cost')
+         per_unit_cost=project_data.get('per_unit_cost')
+         project_start_date =project_data.get('project_start_date')
+         project_end_date = project_data.get('project_end_date')
+         loading_unit = project_data.get('loading_unit')
+         project_loading_employee = project_data.get('project_loading_employee')
+         project_unloading_employee = project_data.get('project_unloading_employee')
+         project_status=project_data.get('project_status')
+         project_discription=project_data.get('project_discription')
+         mapped_vehicles=project_data.get('mapped_vehicle')
+         all_project_data = Add_project(project_name=project_name,project_loading_location=project_loading_location,project_unloading_location=project_unloading_location,material_type=material_type,per_trip_cost=per_trip_cost,per_unit_cost=per_unit_cost,project_start_date=project_start_date,project_end_date=project_end_date,loading_unit=loading_unit,project_loading_employee=project_loading_employee,project_unloading_employee=project_unloading_employee,project_status=project_status,project_discription=project_discription)
          all_project_data.save()
+         users = VehicleRegistraionModel.objects.filter(vehicle_registration_number__in=mapped_vehicles)
+         for us in users :
+            all_project_data.mapped_vehicle.add(us)
+         print("====================================================>>>>>>>>>>>>>>vineet",project_unloading_location)
          return redirect('project_list')
      else:
          emp = Employee_model.objects.all()
          vehicle = VehicleRegistraionModel.objects.all()
-         return render(request,'dash/elements/add_project.html',{"vehicles":vehicle})
+         return render(request,'dash/elements/add_project.html',{"vehicles":vehicle,'emps':emp})
     
 
 ###################################    ADD EMPLOYEE ################################################
