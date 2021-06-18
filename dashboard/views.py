@@ -101,7 +101,7 @@ def add_card(request):
  
 
 from api.models import VehicleRegistraionModel
-
+from django.db.models import Q
 def add_project(request):
      if request.method == 'POST':
          project_data = request.POST
@@ -124,11 +124,18 @@ def add_project(request):
          users = VehicleRegistraionModel.objects.filter(vehicle_registration_number__in=mapped_vehicles)
          for us in users :
             all_project_data.mapped_vehicle.add(us)
-         print("====================================================>>>>>>>>>>>>>>vineet",project_unloading_location)
+       
          return redirect('project_list')
      else:
          emp = Employee_model.objects.all()
-         vehicle = VehicleRegistraionModel.objects.all()
+         pro_vehicle = Add_project.objects.all()
+         data_hai=[]
+         for i in pro_vehicle:
+             data_hai.append(i.mapped_vehicle)
+             
+         vehicle = VehicleRegistraionModel.objects.filter(~Q(id=3))
+         print("==========>>>>>>>>>>>>>>>>>>>",i.mapped_vehicle.all())
+       
          return render(request,'dash/elements/add_project.html',{"vehicles":vehicle,'emps':emp})
     
 

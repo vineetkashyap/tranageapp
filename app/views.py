@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage,send_mass_mail,EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
+import json
+import requests
 
 # Create your views here.
 def index (request):
@@ -192,33 +194,48 @@ def sendmail(request):
         email_id = request.POST['email']
         mobile = request.POST['mobile']
         message_content  =request.POST['message']
-        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
-        email =EmailMessage (
-            'We got a quary',
-            template,
-            settings.EMAIL_HOST_USER,
-            [settings.EMAIL_HOST_USER],
-        )
-        email.fail_silently=False
-        email.send()
-        ########### mail 2  ######################
-        email =EmailMessage(
-            'Thanks for contacting us!',
-            "We will contact you soon",
-            settings.EMAIL_HOST_USER,
-            [request.POST['email']],
-            
-        )
-        email.content_subtype='html'
-        file=open("requirements.txt","r")
-        email.attach("requirements.txt",file.read(),'text/plain')
-        email.fail_silently=False
-        email.send()
-        return JsonResponse({'status':'sent'})
+        clientkey = request.POST['captcha']
+        secretkey = '6LdTZj4bAAAAAIE8qUnp4yw1eRYOFOld4aXLOUdt'
+        captchadata = {
+            'secret':secretkey,
+            'response':clientkey
+        }
+        r=requests.post('https://www.google.com/recaptcha/api/siteverify',data=captchadata)
+        response = json.loads(r.text)
+        verify = response['success']
+        print("Your success is : ",verify)
+        if str(verify)=="True":
+            template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content})
+            email =EmailMessage (
+                'We got a quary',
+                template,
+                settings.EMAIL_HOST_USER,
+                [settings.EMAIL_HOST_USER],
+            )
+            email.fail_silently=False
+            email.send()
+            ########### mail 2  ######################
+            email =EmailMessage(
+                'Thanks for contacting us!',
+                "We will contact you soon",
+                settings.EMAIL_HOST_USER,
+                [request.POST['email']],
+                
+            )
+            email.content_subtype='html'
+            file=open("requirements.txt","r")
+            email.attach("requirements.txt",file.read(),'text/plain')
+            email.fail_silently=False
+            email.send()
+            return JsonResponse({'d':'sent'})
+        else:
+              return JsonResponse({'d':'notsent'})
+
     else:
-         return JsonResponse({'status':'not sent'})
+         return JsonResponse({'d':'notsent'})
 
 #################PROJECT Enquary#####################
+
 @csrf_exempt
 def  enquiry(request):
     if request.method == "POST":
@@ -227,29 +244,43 @@ def  enquiry(request):
         mobile = request.POST['mobile']
         message_content  =request.POST['message']
         project  =request.POST['project']
-        template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content,'project':project})
-        email =EmailMessage (
+        clientkey = request.POST['captcha']
+        secretkey = '6LdTZj4bAAAAAIE8qUnp4yw1eRYOFOld4aXLOUdt'
+        captchadata = {
+            'secret':secretkey,
+            'response':clientkey
+        }
+        r=requests.post('https://www.google.com/recaptcha/api/siteverify',data=captchadata)
+        response = json.loads(r.text)
+        verify = response['success']
+        print("Your success is : ",type(verify))
+        if str(verify) == 'True':
+            template = render_to_string('email.html',{'name':name,'email':email_id,'mobile':mobile,'message':message_content,'project':project})
+            email =EmailMessage (
             'We got a quary',
             template,
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER],
         )
-        email.fail_silently=False
-        email.send()
-        ########### mail 2  ######################
-        email =EmailMessage(
-            'Thanks for contacting us!',
-            "Wie will give you project details soon !",
-            settings.EMAIL_HOST_USER,
-            [request.POST['email']],
-            
-        )
-        # email.content_subtype='html'
-        # file=open("requirements.txt","r")
-        # email.attach("requirements.txt",file.read(),'text/plain')
-        email.fail_silently=False
-        email.send()
-        return JsonResponse({'status':'sent'})
+            email.fail_silently=False
+            email.send()
+            ########### mail 2  ######################
+            email =EmailMessage(
+                'Thanks for contacting us!',
+                "Wie will give you project details soon !",
+                settings.EMAIL_HOST_USER,
+                [request.POST['email']],
+                
+            )
+            # email.content_subtype='html'
+            # file=open("requirements.txt","r")
+            # email.attach("requirements.txt",file.read(),'text/plain')
+            email.fail_silently=False
+            email.send()
+            return JsonResponse({'d':'sent'})
+        else:
+             return JsonResponse({'d':'notsent'})
+
     else:
          return JsonResponse({'status':'not sent'})
 

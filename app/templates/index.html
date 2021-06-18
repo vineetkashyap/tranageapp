@@ -65,17 +65,10 @@ me.default.css">
 
                     <!-- Navbar Brand-->
                     <a class="navbar-brand" href="/">
-                        <span class="brand">
-                            <span class="featured">
-                                <span class="first">TRAN</span>
-                            </span>
-                            <span class="last">AGE</span>
-                        </span>
+                       
                         
-                        <!-- 
-                            Custom Logo
-                            <img src="assets/images/logo.svg" alt="NEXGEN">
-                        -->
+                            <img src="{% static 'assets/images/logo/11.png' %}" alt="Tranage">
+                       
                     </a>
 
                     <!-- Nav holder -->
@@ -181,7 +174,7 @@ me.default.css">
                     <div class="swiper-slide slide-center">
 
                         <!-- Media -->
-                        <video class="full-image to-bottom" data-mask="50" src="{% static 'assets/video/highway.mp4' %}" autoplay muted loop></video>
+                        <video class="full-image to-bottom" data-mask="50" src="{% static 'assets/video/TRANAGE.mp4' %}" autoplay muted loop></video>
 
                         <div class="slide-content row">
                             <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
@@ -274,7 +267,10 @@ me.default.css">
                                         
                                         <div class="form-group">
                                              <textarea id="message{{card.id}}" name="message" class="form-control field-message" placeholder="Message"></textarea>
+                                           
                                         </div>
+                                        <div class="g-recaptcha" data-sitekey="6LdTZj4bAAAAAL0U_euT6nwpFUzy4E95k2CiBxR8"></div>
+
                                     </div>
                                 </div>
                             </div>
@@ -729,6 +725,8 @@ $('#car2').owlCarousel({
                 <i class="fas fa-arrow-up"></i>
             </a>
         </div>        
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
      

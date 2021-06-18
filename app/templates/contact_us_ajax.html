@@ -16,7 +16,7 @@
         console.log(mobile1)
         console.log(message1)
 
-        mydata = {name:name1,email:email1,mobile:mobile1,message:message1};
+        mydata = {name:name1,email:email1,mobile:mobile1,message:message1,captcha: grecaptcha.getResponse()};
         console.log(mydata)
 if(funval()==true){
         fun()
@@ -25,9 +25,19 @@ if(funval()==true){
          method: "POST",
          data: mydata,
          success: function(data){
+           if(data.d=="sent"){
+            
              document.getElementById("myform").reset();
              
              notie.alert({ type: 'success',  text: name1 + ' we will contact you soon !',position: 'bottom', time: 5 }) // Hides after 2 seconds
+         }
+              else{
+         
+          swal('Please Enter Captcha!')
+        }
+          
+          
+
          }
          
         })
@@ -67,3 +77,4 @@ Swal.fire({
     }
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

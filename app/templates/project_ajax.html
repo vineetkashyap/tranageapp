@@ -10,6 +10,7 @@ var mobile= $("#mobile{{card.id}}").val();
 var a= mobile;
 var message= $("#message{{card.id}}").val();
 var project= $("#project{{card.id}}").val();
+
 function card_email(){
     
     console.log(name)
@@ -68,19 +69,27 @@ function card_email(){
 
 
 }
-mydata = {name:name,email:email,mobile:mobile,message:message,project:project}
-console.log(mydata)
+mydata = {name:name,email:email,mobile:mobile,message:message,project:project,captcha: grecaptcha.getResponse()}
+
  if(card_email()==true){
     fun()
     $.ajax({
  url: "{% url 'enquiry' %}",
  method: "POST",
  data: mydata,
- success: function(data){
+ success: function(data,status){
+
+  if(data.d=="sent"){
      document.getElementById("closebtn{{card.id}}").click();
      document.getElementById("informbtn{{card.id}}").click();
      document.getElementById("proform{{card.id}}").reset();
      swal("Good job!", "we will contact you soon !", "success");
+  }
+  else{
+    
+    swal('Please Enter Captcha!' )
+  }
+    
     
  }
  
