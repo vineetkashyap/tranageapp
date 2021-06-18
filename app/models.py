@@ -1,5 +1,18 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
+class photos(models.Model):
+    # title field
+    title = models.CharField(max_length=100)
+    #image field
+    image = CloudinaryField('image')
+
+
+class videos(models.Model):
+    # title field
+    title = models.CharField(max_length=100)
+    #image field
+    video = CloudinaryField('video')
 
 class Distributor_Model(models.Model):
     full_name = models.CharField(max_length=50)

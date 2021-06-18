@@ -129,12 +129,15 @@ def add_project(request):
      else:
          emp = Employee_model.objects.all()
          pro_vehicle = Add_project.objects.all()
+         
          data_hai=[]
          for i in pro_vehicle:
-             data_hai.append(i.mapped_vehicle)
+             #data_hai.append(i.mapped_vehicle)
+             print("==========>>>>>>>>>>>>>>>>>>>",i.mapped_vehicle)
+            
              
          vehicle = VehicleRegistraionModel.objects.filter(~Q(id=3))
-         print("==========>>>>>>>>>>>>>>>>>>>",i.mapped_vehicle.all())
+        
        
          return render(request,'dash/elements/add_project.html',{"vehicles":vehicle,'emps':emp})
     

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'app',
     'dashboard',
     'api',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,12 @@ EMAIL_USE_SSL = True
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "noreply@hrst.in"
 EMAIL_HOST_PASSWORD = "479d479d"
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+cloudinary.config( 
+  cloud_name = "tranage", 
+  api_key = "225644257213937", 
+  api_secret = "YHfagUjr3YubvaVCzJOnxOO5jCw" 
+)

@@ -12,6 +12,9 @@ from django.core.mail import EmailMessage,send_mass_mail,EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
 import json
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import requests
 
 # Create your views here.
