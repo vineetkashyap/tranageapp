@@ -37,7 +37,7 @@ function myfun(){
     var email = document.getElementById("email").value;
     var invest = document.getElementById("invest").value;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+    var IndNum = /^[0]?[6789]\d{9}$/;
     if(name==""){
 
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter your name!' })
@@ -91,7 +91,12 @@ function myfun(){
          return false;
     }
 
-
+    if(!(IndNum.test(a))){
+        document.getElementById("mobile").value="";
+        swal('Mobile must be started from 6,7,8,9')
+        document.getElementById("mobile").focus();
+         return false;
+    }
 
     
    
@@ -232,6 +237,7 @@ function myfun2(){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+    var IndNum = /^[0]?[6789]\d{9}$/;
 
     if(message==""){
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please tell us something!' })
@@ -325,6 +331,13 @@ function myfun2(){
         document.getElementById("pancard").focus();
          return false;
     } 
+    if(!(IndNum.test(a))){
+        document.getElementById("mobile").value="";
+        swal('Mobile must be started from 6,7,8,9')
+        document.getElementById("mobile").focus();
+         return false;
+    }
+
     if (isNaN(a)){
         document.getElementById("mobile").value="";
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
@@ -406,6 +419,7 @@ function funval(){
     var mobile = document.getElementById("mobile").value;
     var message = document.getElementById("message").value;
     var email = document.getElementById("email").value;
+    var IndNum = /^[0]?[6789]\d{9}$/;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if(name==""){
@@ -413,6 +427,12 @@ function funval(){
         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter name!' })
         document.getElementById("name").focus();
         return false;
+    }
+    if(!(IndNum.test(mobile))){
+        document.getElementById("mobile").value="";
+        swal('Mobile must be started from 6,7,8,9')
+        document.getElementById("mobile").focus();
+         return false;
     }
     if (isNaN(mobile)){
         document.getElementById("mobile").value="";

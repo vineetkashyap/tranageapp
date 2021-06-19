@@ -128,17 +128,24 @@ def add_project(request):
          return redirect('project_list')
      else:
          emp = Employee_model.objects.all()
-         pro_vehicle = Add_project.objects.all()
-         
-         data_hai=[]
-         for i in pro_vehicle:
-             #data_hai.append(i.mapped_vehicle)
-             print("==========>>>>>>>>>>>>>>>>>>>",i.mapped_vehicle)
-            
-             
-         vehicle = VehicleRegistraionModel.objects.filter(~Q(id=3))
+         try:
+            pro_vehicle = Add_project.objects.all()
         
-       
+            data_list=[]
+            for i in pro_vehicle:
+                #data_hai.append(i.mapped_vehicle)
+        
+        
+                for j in i.mapped_vehicle.all():
+                    data_list.append(j.vehicle_registration_number)
+
+            
+            
+            
+            vehicle = VehicleRegistraionModel.objects.exclude(vehicle_registration_number__in=data_list)
+        
+         except Add_project.DoesNotExist:
+                           vehicle =None
          return render(request,'dash/elements/add_project.html',{"vehicles":vehicle,'emps':emp})
     
 
@@ -155,3 +162,6 @@ def add_employee(request):
         return redirect('add_employee')
     else :
          return render(request,'dash/elements/add_employee.html')
+
+
+  

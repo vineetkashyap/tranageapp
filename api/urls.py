@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from api import views
-from api.My_view import truck_owner,agent,driver,transporter,vehicle,add_project,employee_detail,loading
+from api.My_view import truck_owner,agent,driver,transporter,vehicle,add_project,employee_detail,loading,mechanic,maintenance
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.authtoken.views import obtain_auth_token
@@ -16,6 +16,8 @@ router.register('driver',driver.DriverRegistrationSerializer_View,basename='driv
 router.register('add_project',add_project.AddProject_View,basename='add_project')
 router.register('getemp',employee_detail.Employee_View,basename='getemp')
 router.register('loading',loading.Loading_View,basename='loading')
+router.register('mechanic',mechanic.MechanicRegistrationSerializer_View,basename='mechanic')
+router.register('maintenance',maintenance.Maintenance_View,basename='maintenance')
 
 
 urlpatterns = [

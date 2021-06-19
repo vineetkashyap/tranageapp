@@ -182,3 +182,34 @@ class Trip_model(models.Model):
 ############################################END LODING MODELS##########################################
 
 
+class Mechanic_model(models.Model):
+    name  = models.CharField(max_length=500)
+    mobile_number  = models.CharField(max_length=500)
+    alternate_number  = models.CharField(max_length=500)
+    shop_name  = models.CharField(max_length=500)
+    shop_address  = models.CharField(max_length=500)
+    shop_services  = models.CharField(max_length=500)
+    service_area  = models.CharField(max_length=500)
+    service_time  = models.CharField(max_length=500)
+    emergency_service  = models.CharField(max_length=50)
+    register_by  = models.CharField(max_length=500)
+    register_on =models.DateTimeField(auto_now_add=True)
+    user_type = models.CharField(max_length=500)
+
+class Maintenance_Support(models.Model):
+    name  = models.CharField(max_length=500)
+    mobile_number  = models.CharField(max_length=500)
+    alternate_number  = models.CharField(max_length=500)
+    state  = models.CharField(max_length=500)
+    distric  = models.CharField(max_length=500)
+    address  = models.CharField(max_length=500)
+    location  = models.CharField(max_length=500)
+    problem_related_to  = models.CharField(max_length=500)
+    problem_discription  = models.CharField(max_length=500)
+    photo_of_problem = models.FileField( upload_to='media', max_length=100)
+    is_crain_required = models.CharField(max_length=50)
+    register_on =models.DateTimeField(auto_now_add=True)
+
+
+
+

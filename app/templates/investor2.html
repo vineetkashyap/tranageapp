@@ -192,9 +192,16 @@
                 <!-- ######################################### START MOBILE OTP ###############################-->
                 <script>
                     var otp_from_back_mobile="";
+                    var IndNum = /^[0]?[6789]\d{9}$/;
                     function mobile_validation(){
                     var a = document.getElementById("mobile_field").value;
-                    if (isNaN(a)){
+                      if(!(IndNum.test(a))){
+                        document.getElementById("mobile{{card.id}}").value="";
+                        swal('Mobile must be started from 6,7,8,9')
+                        document.getElementById("mobile{{card.id}}").focus();
+                        return false;
+                    }
+                        if (isNaN(a)){
                         document.getElementById("mobile").value="";
                         notie.alert({ type: 'warning',position: 'bottom',text: 'Please enter correct mobile number!' })
                         document.getElementById("mobile").focus();

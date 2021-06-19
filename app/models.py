@@ -1,6 +1,8 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 class photos(models.Model):
     # title field
     title = models.CharField(max_length=100)

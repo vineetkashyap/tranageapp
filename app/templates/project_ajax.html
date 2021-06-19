@@ -16,6 +16,7 @@ function card_email(){
     console.log(name)
     console.log(a)
     console.log(email)
+    var IndNum = /^[0]?[6789]\d{9}$/;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     if(name==""){
@@ -38,6 +39,12 @@ function card_email(){
     swal('Please enter correct email address!')
     document.getElementById("email{{card.id}}").focus();
     return false;
+    }
+  if(!(IndNum.test(a))){
+        document.getElementById("mobile{{card.id}}").value="";
+        swal('Mobile must be started from 6,7,8,9')
+        document.getElementById("mobile{{card.id}}").focus();
+         return false;
     }
     if (isNaN(a)){
         document.getElementById("mobile{{card.id}}").value="";

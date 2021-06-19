@@ -76,3 +76,13 @@ class Get_project(serializers.ModelSerializer):
     class Meta:
         model = Add_project
         fields = '__all__'
+
+class Mechanic_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mechanic_model
+        fields = '__all__'
+
+class Maintenance_Serializers(serializers.ModelSerializer):
+    class Meta:
+        model = Maintenance_Support
+        fields = '__all__'

@@ -51,6 +51,9 @@ urlpatterns = [
     path('getcardata/',views.getcardata,name="getcardata"),
     path('enquiry/',views.enquiry,name="enquiry"),
     path('trip_List/',dash.trip_List,name="trip_List"),
+    path('send_email_otp',send_email_otp,name="send_email_otp"),
+    path('send_mobile_otp',send_mobile_otp,name="send_mobile_otp"),
+    path('add_project/',dash.add_project,name="add_project"),
 
     path('con/',views.test1,name='con')
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
